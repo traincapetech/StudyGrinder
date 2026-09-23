@@ -8,6 +8,7 @@ import Cisco from "../assets/Cisco/CiscoIcon.png";
 import comptia from "../assets/comptia-2.webp";
 import microsoft from "../assets/microsoft-kartikey.png";
 import PECB from "../assets/PECB1.png";
+import ISACA from "../assets/Isaca.svg";
 
 const TRAINING_TRACKS = [
   {
@@ -55,6 +56,12 @@ const VENDORS = [
     image: PECB,
     href: "/pecb",
   },
+  {
+    title: "ISACA",
+    desc: "CISA, CISM, CRISC, CGEIT & CDPSE — gold-standard IT audit, governance, risk and security management.",
+    image: ISACA,
+    href: "/isaca",
+  },
 ];
 
 function VendorCard({ vendor, onClick }) {
@@ -67,7 +74,7 @@ function VendorCard({ vendor, onClick }) {
         <img
           src={vendor.image}
           alt={`${vendor.title} training`}
-          className="h-12 w-12 object-contain"
+          className="h-10 w-auto max-w-[80px] object-contain"
           loading="lazy"
           decoding="async"
         />

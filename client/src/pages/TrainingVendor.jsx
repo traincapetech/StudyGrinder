@@ -6,6 +6,7 @@ import AdvisorModal from "../components/AdvisorModal";
 import AWS from "../assets/aws-kartikey.png";
 import Cisco from "../assets/Cisco/CiscoIcon.png";
 import microsoft from "../assets/microsoft-kartikey.png";
+import ISACA from "../assets/Isaca.svg";
 
 const VENDORS = {
   aws: {
@@ -76,6 +77,33 @@ const VENDORS = {
       { label: "Explore Certifications", href: "/certifications" },
       { label: "Cybersecurity & Compliance", href: "/certifications/cybersecurity-compliance" },
       { label: "Cloud & Infrastructure Certifications", href: "/certifications/cloud-infrastructure-networking" },
+    ],
+  },
+  isaca: {
+    name: "ISACA Training",
+    short: "Master IT audit, information security management, risk governance, and compliance with ISACA-aligned certifications.",
+    image: ISACA,
+    seoTitle: "ISACA Certifications Training | CISA, CISM, CRISC | Armx-Indecodex",
+    seoDescription:
+      "Prepare for ISACA certifications (CISA, CISM, CRISC, CGEIT, CDPSE) with comprehensive learning tracks, mock tests, and advisor guidance.",
+    highlights: [
+      "Globally recognized credentials: CISA, CISM, CRISC, CGEIT, CDPSE",
+      "Aligned with official ISACA exam blueprints and job practice domains",
+      "Hands-on case studies and real-world audit & risk scenarios",
+      "Mentorship from certified ISACA practitioner instructors",
+    ],
+    popularTracks: [
+      { title: "CISA (Certified Information Systems Auditor)", desc: "World-renowned benchmark for IT audit, assurance, control, and security assessment." },
+      { title: "CISM (Certified Information Security Manager)", desc: "Management-focused certification covering info security governance, risk, and incident management." },
+      { title: "CRISC (Certified in Risk & Information Systems Control)", desc: "Enterprise IT risk identification, assessment, response, and monitoring controls." },
+      { title: "CGEIT (Governance of Enterprise IT)", desc: "Strategic governance, benefits realization, risk optimization, and resource stewardship." },
+      { title: "CDPSE (Data Privacy Solutions Engineer)", desc: "Technical privacy implementation and data governance across digital architectures." },
+    ],
+    recommendedLinks: [
+      { label: "Explore Certifications", href: "/certifications" },
+      { label: "Dedicated ISACA Certification Hub", href: "/isaca" },
+      { label: "Cybersecurity & Compliance", href: "/certifications/cybersecurity-compliance" },
+      { label: "PECB Certifications", href: "/pecb" },
     ],
   },
 };

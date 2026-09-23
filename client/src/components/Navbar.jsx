@@ -311,7 +311,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <div className="relative">
+              {/* <div className="relative">
                 <GradientButton
                   ref={payNowButtonRef}
                   onClick={handlePayNow}
@@ -321,7 +321,7 @@ const Navbar = () => {
                 >
                   Pay Now
                 </GradientButton>
-              </div>
+              </div> */}
 
               {token ? (
                 <div className="transform transition-all duration-300 hover:scale-105">
@@ -451,17 +451,17 @@ const Navbar = () => {
                 Contact
               </Link>
 
-              <div className="relative mt-4 pt-4 border-t border-slate-100">
+              {/* <div className="relative mt-4 pt-4 border-t border-slate-100">
                 <GradientButton
                   ref={mobilePayNowButtonRef}
                   onClick={handlePayNow}
                   className="w-full !p-0.5"
                 >
                   Pay Now
-                </GradientButton>
+                </GradientButton> */}
 
                 {/* Mobile dropdown logic */}
-                {showDropdown && (
+                {/* {showDropdown && (
                   <div
                     ref={mobileDropdownRef}
                     className="mt-3 bg-white text-slate-800 shadow-xl w-full rounded-lg overflow-hidden border border-slate-200 transform origin-top transition-all duration-300 ease-out animate-dropdown-in"
@@ -487,7 +487,7 @@ const Navbar = () => {
                     </button>
                   </div>
                 )}
-              </div>
+              </div> */}
 
               <div className="mt-6">
                 {token ? (

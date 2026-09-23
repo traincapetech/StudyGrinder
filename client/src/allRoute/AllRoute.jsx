@@ -54,6 +54,7 @@ const Internship = lazyWithRetry(() => import("../pages/Internship"));
 const Test = lazyWithRetry(() => import("../pages/Test/Test"));
 const Training = lazyWithRetry(() => import("../pages/Training"));
 const TrainingVendor = lazyWithRetry(() => import("../pages/TrainingVendor"));
+const ISACA = lazyWithRetry(() => import("../pages/ISACA"));
 const InternalExams = lazyWithRetry(() => import("../pages/InternalExams"));
 // const VoucherSuccess = lazyWithRetry(() => import("../pages/VoucherSuccess"));
 // const VoucherCancel = lazyWithRetry(() => import("../pages/VoucherCancel"));
@@ -719,6 +720,10 @@ const AllRoute = () => {
         />
         {/* Main PECB Landing Page */}
         <Route path="/PECB" element={<PECB />} />
+        <Route path="/pecb" element={<PECB />} />
+        {/* Main ISACA Landing Page */}
+        <Route path="/isaca" element={<ISACA />} />
+        <Route path="/ISACA" element={<ISACA />} />
         <Route path="/home" element={<LandingPage />} />
         {/* Employee and Training Routes */}
         <Route path="/internship" element={<Internship />} />

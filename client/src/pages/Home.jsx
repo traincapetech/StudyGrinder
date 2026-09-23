@@ -249,6 +249,27 @@ const Home = () => {
       price: "$400",
       url: "/pecb/cybersecurity/computer-forensics"
     },
+    {
+      image: ISACA,
+      title: "ISACA CISA",
+      description: "Certified Information Systems Auditor — Global benchmark for IT audit, controls and assurance.",
+      price: "$450",
+      url: "/isaca"
+    },
+    {
+      image: ISACA,
+      title: "ISACA CISM",
+      description: "Certified Information Security Manager — Leading management-focused credential for infosec leaders.",
+      price: "$450",
+      url: "/isaca"
+    },
+    {
+      image: ISACA,
+      title: "ISACA CRISC",
+      description: "Certified in Risk & Information Systems Control — Master enterprise IT risk management and governance.",
+      price: "$450",
+      url: "/isaca"
+    },
   ];
 
   const navigate = useNavigate();
@@ -511,6 +532,54 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* TRUSTED VENDORS & ACCREDITATIONS                                          */}
+      {/* ========================================================================= */}
+      <motion.div
+        className="py-16 bg-white border-y border-slate-100"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Accreditations & Partnerships</p>
+          <h2 className="font-extrabold text-3xl md:text-4xl text-[#1F3C88] mb-10 tracking-tight">
+            Our Certified Partners & Providers
+          </h2>
+          <div className="flex flex-col md:flex-row items-stretch justify-center border border-slate-200 bg-white rounded-3xl shadow-lg p-4 md:p-6 max-w-4xl mx-auto">
+            {[
+              { logo: comptia, name: "CompTIA", url: "https://www.comptia.org/" },
+              { logo: pecb, name: "PECB", url: "https://pecb.com/" },
+              { logo: ISACA, name: "ISACA", url: "https://www.isaca.org/" },
+            ].map((vendor, index, arr) => (
+              <div
+                key={index}
+                className="flex-1 px-6 py-6 relative bg-white flex flex-col items-center justify-center hover:scale-102 transition-transform"
+              >
+                <a
+                  href={vendor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full text-center"
+                >
+                  <img
+                    src={vendor.logo || "/placeholder.svg"}
+                    alt={vendor.name}
+                    className="object-contain max-h-16 max-w-[80%] mx-auto mb-3 cursor-pointer hover:opacity-80 transition-opacity"
+                    loading="lazy"
+                  />
+                  <h3 className="text-lg font-bold text-gray-800 hover:text-blue-600 transition-colors">{vendor.name}</h3>
+                </a>
+                {index < arr.length - 1 && (
+                  <div className="hidden md:block absolute right-0 top-6 bottom-6 w-px bg-slate-200"></div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* ========================================================================= */}
       {/* STRATEGIC ALLIANCE: ARMX-INDICODEX IS A UNIT OF TAX BUCKET                */}
@@ -823,53 +892,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* TRUSTED VENDORS & ACCREDITATIONS                                          */}
-      {/* ========================================================================= */}
-      <motion.div
-        className="py-16 bg-white border-y border-slate-100"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Accreditations & Partnerships</p>
-          <h2 className="font-extrabold text-3xl md:text-4xl text-[#1F3C88] mb-10 tracking-tight">
-            Our Certified Partners & Providers
-          </h2>
-          <div className="flex flex-col md:flex-row items-stretch justify-center border border-slate-200 bg-white rounded-3xl shadow-lg p-4 md:p-6 max-w-4xl mx-auto">
-            {[
-              { logo: comptia, name: "CompTIA", url: "https://www.comptia.org/" },
-              { logo: pecb, name: "PECB", url: "https://pecb.com/" },
-              { logo: ISACA, name: "ISACA", url: "https://www.isaca.org/" },
-            ].map((vendor, index, arr) => (
-              <div
-                key={index}
-                className="flex-1 px-6 py-6 relative bg-white flex flex-col items-center justify-center hover:scale-102 transition-transform"
-              >
-                <a
-                  href={vendor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full h-full text-center"
-                >
-                  <img
-                    src={vendor.logo || "/placeholder.svg"}
-                    alt={vendor.name}
-                    className="object-contain max-h-16 max-w-[80%] mx-auto mb-3 cursor-pointer hover:opacity-80 transition-opacity"
-                    loading="lazy"
-                  />
-                  <h3 className="text-lg font-bold text-gray-800 hover:text-blue-600 transition-colors">{vendor.name}</h3>
-                </a>
-                {index < arr.length - 1 && (
-                  <div className="hidden md:block absolute right-0 top-6 bottom-6 w-px bg-slate-200"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+      
 
       {/* ========================================================================= */}
       {/* POPULAR CERTIFICATION COURSES CAROUSEL                                    */}
