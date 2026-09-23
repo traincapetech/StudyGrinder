@@ -22,7 +22,7 @@ const TermsAndCondition = () => {
         </h1>
         <p className={terms.paragraph}>
           <h2 className={terms.heading}>RETURNS</h2>
-          Armx-Indecodex provides certificates for various courses,
+          Study Grinder provides certificates for various courses,
           including PMP, Azure, and many more. These courses are designed to
           ensure that working professionals can attend and complete them within
           their contexts and limitations in time. The courses are interactive
@@ -53,8 +53,8 @@ const TermsAndCondition = () => {
           Please note that it may take some time for your bank or credit card
           company to process and post the refund. If more than 15 business days
           have passed since we approved your return, please contact us at
-          Sales@Armx-Indecodextech.info. For more information, visit
-          Armx-Indecodextech.in, where we offer a range of courses, including PMP,
+          Sales@studygrinder.in. For more information, visit
+          studygrinder.in, where we offer a range of courses, including PMP,
           Azure, and many more, and provide certificates upon completion.
         </p>
       </div>

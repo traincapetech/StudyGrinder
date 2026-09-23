@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { submitLead } from "../utils/submitLead";
+import { Award, PhoneCall, ShieldCheck, X } from "lucide-react";
 
 function isValidEmail(email = "") {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim());
@@ -14,6 +15,7 @@ export default function AdvisorModal({ isOpen, onClose, prefillCourse = "" }) {
       country: "",
       whatsapp: "",
       course: prefillCourse || "",
+      interestType: "Individual Certification Training",
     }),
     [prefillCourse]
   );
@@ -46,13 +48,14 @@ export default function AdvisorModal({ isOpen, onClose, prefillCourse = "" }) {
     const country = form.country.trim();
     const whatsapp = form.whatsapp.trim();
     const course = form.course.trim();
+    const interestType = form.interestType;
 
     if (name.length < 2) return toast.error("Please enter your name.");
     if (!isValidEmail(email)) return toast.error("Please enter a valid email.");
-    if (!country) return toast.error("Please enter your country.");
+    if (!country) return toast.error("Please enter your country/city.");
     if (!whatsapp || whatsapp.replace(/[^\d]/g, "").length < 6)
-      return toast.error("Please enter a valid WhatsApp number.");
-    if (!course) return toast.error("Please enter the course/program.");
+      return toast.error("Please enter a valid WhatsApp or contact number.");
+    if (!course) return toast.error("Please enter the certification or skill track.");
 
     const pageUrl = typeof window !== "undefined" ? window.location.href : "";
     const lead = {
@@ -60,14 +63,19 @@ export default function AdvisorModal({ isOpen, onClose, prefillCourse = "" }) {
       email,
       phoneNumber: whatsapp,
       location: country,
-      subject: `Advisor Request — ${course}`,
-      message: `Advisor request for: ${course}\nCountry: ${country}\nWhatsApp: ${whatsapp}\nPage: ${pageUrl}`,
+      subject: `StudyGrinder Training Advisor Request — ${course}`,
+      message: `Training Guidance Request:
+Program / Track: ${course}
+Interest Type: ${interestType}
+Country / Location: ${country}
+WhatsApp / Phone: ${whatsapp}
+Source Page: ${pageUrl}`,
     };
 
     setSubmitting(true);
     try {
       await submitLead(lead);
-      toast.success("Thanks! Our team will contact you shortly.");
+      toast.success("Thank you! A StudyGrinder training advisor will contact you within 4 hours.");
       setForm(initial);
       onClose?.();
     } catch (err) {
@@ -82,126 +90,152 @@ export default function AdvisorModal({ isOpen, onClose, prefillCourse = "" }) {
       className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6"
       role="dialog"
       aria-modal="true"
-      aria-label="Talk to Advisor"
+      aria-label="Talk to StudyGrinder Training Advisor"
       onMouseDown={(e) => {
-        // close if clicking backdrop
         if (e.target === e.currentTarget) onClose?.();
       }}
     >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" />
 
-      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
-        <div className="h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden font-sans">
+        <div className="h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-orange-500" />
 
-        <div className="p-6 md:p-8">
+        <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-extrabold text-gray-900 font-display">Consult Tech Architect</h2>
-              <p className="mt-1 text-sm text-gray-600">
-                Speak directly with a technology consultant to map your technical requirements or select the right upskilling track.
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-100 mb-2">
+                <PhoneCall className="w-3 h-3" />
+                <span>StudyGrinder Advisory</span>
+              </div>
+              <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                Talk to a Training Advisor
+              </h2>
+              <p className="mt-1 text-xs sm:text-sm text-slate-600">
+                Speak directly with an advisor to evaluate prerequisites, exam formats, and recommended learning schedules.
               </p>
             </div>
             <button
               type="button"
               onClick={() => onClose?.()}
-              className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-gray-700 hover:bg-gray-50"
+              className="p-2 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition"
               aria-label="Close"
             >
-              ✕
+              <X className="w-5 h-5" />
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="md:col-span-1">
-              <label htmlFor="advisor-name" className="text-sm font-semibold text-gray-800">
-                Name
+          <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+            <div>
+              <label htmlFor="advisor-name" className="text-xs font-semibold text-slate-800 block mb-1">
+                Full Name *
               </label>
               <input
                 id="advisor-name"
                 autoComplete="name"
+                required
                 value={form.name}
                 onChange={update("name")}
-                className="mt-1 w-full px-4 py-3 rounded-xl border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Your full name"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                placeholder="e.g. John Doe"
               />
             </div>
 
-            <div className="md:col-span-1">
-              <label htmlFor="advisor-email" className="text-sm font-semibold text-gray-800">
-                Email
+            <div>
+              <label htmlFor="advisor-email" className="text-xs font-semibold text-slate-800 block mb-1">
+                Email Address *
               </label>
               <input
                 id="advisor-email"
+                type="email"
                 autoComplete="email"
+                required
                 value={form.email}
                 onChange={update("email")}
-                className="mt-1 w-full px-4 py-3 rounded-xl border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="name@example.com"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                placeholder="john@example.com"
               />
             </div>
 
-            <div className="md:col-span-1">
-              <label htmlFor="advisor-country" className="text-sm font-semibold text-gray-800">
-                Country
+            <div>
+              <label htmlFor="advisor-country" className="text-xs font-semibold text-slate-800 block mb-1">
+                Country / Location *
               </label>
               <input
                 id="advisor-country"
-                autoComplete="country-name"
+                required
                 value={form.country}
                 onChange={update("country")}
-                className="mt-1 w-full px-4 py-3 rounded-xl border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="e.g., India"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                placeholder="e.g. United States / India"
               />
             </div>
 
-            <div className="md:col-span-1">
-              <label htmlFor="advisor-whatsapp" className="text-sm font-semibold text-gray-800">
-                WhatsApp Number
+            <div>
+              <label htmlFor="advisor-whatsapp" className="text-xs font-semibold text-slate-800 block mb-1">
+                Phone / WhatsApp *
               </label>
               <input
                 id="advisor-whatsapp"
-                autoComplete="tel"
-                inputMode="tel"
+                type="tel"
+                required
                 value={form.whatsapp}
                 onChange={update("whatsapp")}
-                className="mt-1 w-full px-4 py-3 rounded-xl border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="+91 90000 00000"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                placeholder="+1 555-0199"
               />
             </div>
 
-            <div className="md:col-span-2">
-              <label htmlFor="advisor-course" className="text-sm font-semibold text-gray-800">
-                Course / Program
+            <div className="sm:col-span-2">
+              <label htmlFor="advisor-type" className="text-xs font-semibold text-slate-800 block mb-1">
+                Interest Type
+              </label>
+              <select
+                id="advisor-type"
+                value={form.interestType}
+                onChange={update("interestType")}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-slate-700"
+              >
+                <option value="Individual Certification Training">Individual Certification Training</option>
+                <option value="Corporate / Team Upskilling">Corporate / Team Upskilling</option>
+                <option value="Exam Blueprint & Voucher Guidance">Exam Blueprint & Voucher Guidance</option>
+                <option value="Career Transition Consultation">Career Transition Consultation</option>
+              </select>
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="advisor-course" className="text-xs font-semibold text-slate-800 block mb-1">
+                Target Certification or Track *
               </label>
               <input
                 id="advisor-course"
+                required
                 value={form.course}
                 onChange={update("course")}
-                className="mt-1 w-full px-4 py-3 rounded-xl border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="e.g., ISO 27001 Lead Implementer / AWS Foundations"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                placeholder="e.g. AWS Solutions Architect, CompTIA Security+, ISO 27001, Azure AZ-104"
               />
             </div>
 
-            <div className="md:col-span-2 flex flex-col-reverse md:flex-row items-stretch md:items-center gap-3 mt-2">
+            <div className="sm:col-span-2 flex flex-col-reverse sm:flex-row items-center gap-3 mt-2">
               <button
                 type="button"
                 onClick={() => onClose?.()}
-                className="w-full md:w-auto px-5 py-3 rounded-xl font-bold bg-white border border-gray-200 text-gray-900 hover:shadow-md transition"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition text-sm cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full md:flex-1 px-6 py-3 rounded-xl font-bold bg-blue-700 hover:bg-blue-800 text-white transition disabled:opacity-60"
+                className="w-full sm:flex-1 py-3 rounded-xl font-bold bg-orange-500 hover:bg-orange-600 text-white transition text-sm shadow-md disabled:opacity-50 cursor-pointer"
               >
-                {submitting ? "Submitting..." : "Request Architecture Consultation"}
+                {submitting ? "Submitting Request..." : "Request Advisor Consultation"}
               </button>
             </div>
 
-            <div className="md:col-span-2 text-center mt-2">
-              <p className="text-xs text-slate-400 font-medium">
-                🔒 Your details are secure. We guarantee a response within 4 business hours.
+            <div className="sm:col-span-2 text-center mt-1">
+              <p className="text-[11px] text-slate-400 font-medium">
+                🔒 Your details are confidential. We never spam. An advisor will contact you within 4 business hours.
               </p>
             </div>
           </form>
@@ -210,4 +244,3 @@ export default function AdvisorModal({ isOpen, onClose, prefillCourse = "" }) {
     </div>
   );
 }
-

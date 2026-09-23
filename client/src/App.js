@@ -47,7 +47,7 @@ const App = () => {
     <ChunkErrorBoundary>
       <HelmetProvider>
         <Helmet>
-          <link rel="canonical" href={`https://www.Armx-Indecodextech.in${location.pathname.endsWith('/') && location.pathname !== '/' ? location.pathname.slice(0, -1) : location.pathname}`} />
+          <link rel="canonical" href={`https://studygrinder.com${location.pathname.endsWith('/') && location.pathname !== '/' ? location.pathname.slice(0, -1) : location.pathname}`} />
         </Helmet>
         <LanguageProvider>
           <ErrorBoundary>
