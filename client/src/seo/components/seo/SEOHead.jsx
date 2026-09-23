@@ -36,17 +36,17 @@ const SEOHead = ({
   const location = useLocation();
   const crumbs = useBreadcrumbs();
 
-  const baseUrl = 'https://www.Armx-Indecodextech.in';
+  const baseUrl = 'https://studygrinder.com';
   const rawCanonical = canonical || `${baseUrl}${location.pathname}`;
-  let cleanCanonical = rawCanonical.replace('https://Armx-Indecodextech.in', 'https://www.Armx-Indecodextech.in');
-  if (cleanCanonical.endsWith('/') && cleanCanonical !== 'https://www.Armx-Indecodextech.in/') {
+  let cleanCanonical = rawCanonical;
+  if (cleanCanonical.endsWith('/') && cleanCanonical !== 'https://studygrinder.com/') {
     cleanCanonical = cleanCanonical.slice(0, -1);
   }
   const canonicalUrl = cleanCanonical;
 
-  const defaultDescription = "Expert-led online courses for AWS, CompTIA, Microsoft, Cisco and other IT certifications. Advance your IT career with Armx-Indecodex.";
-  const defaultTitle = "Armx-Indecodex | IT Training & Certification";
-  const defaultOgImage = `${baseUrl}/android-chrome-512x512.png`;
+  const defaultDescription = "StudyGrinder is a professional certification training and learning platform. Prepare for CompTIA, AWS, Microsoft, Cisco, PECB, and ISACA certifications with expert-led instruction.";
+  const defaultTitle = "StudyGrinder | Professional Certification Training & Learning Platform";
+  const defaultOgImage = `${baseUrl}/studygrinder-logo.jpg`;
 
   const metaTitle = title || defaultTitle;
   const metaDesc = description || defaultDescription;

@@ -53,6 +53,8 @@ const LandingPage = lazyWithRetry(
 const Internship = lazyWithRetry(() => import("../pages/Internship"));
 const Test = lazyWithRetry(() => import("../pages/Test/Test"));
 const Training = lazyWithRetry(() => import("../pages/Training"));
+const CorporateTraining = lazyWithRetry(() => import("../pages/CorporateTraining"));
+const Resources = lazyWithRetry(() => import("../pages/Resources"));
 const TrainingVendor = lazyWithRetry(() => import("../pages/TrainingVendor"));
 const ISACA = lazyWithRetry(() => import("../pages/ISACA"));
 const InternalExams = lazyWithRetry(() => import("../pages/InternalExams"));
@@ -449,10 +451,10 @@ const AllRoute = () => {
         <Route path="/video-courses" element={<VideoCoursesPage />} />
         <Route path="/video-courses/:id" element={<VideoCourseDetailPage />} />
         <Route path="/video-courses/payment-success" element={<VideoCourseSuccess />} />
-        <Route
-          path="/training"
-          element={<Navigate to="/certifications" replace />}
-        />
+        <Route path="/training" element={<Training />} />
+        <Route path="/corporate-training" element={<CorporateTraining />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/software-solutions" element={<Services />} />
         <Route path="/training/:vendorSlug" element={<TrainingVendor />} />
         <Route path="/frequently-asked-questions" element={<FAQ />} />
         <Route path="/services" element={<Services />} />

@@ -2,36 +2,36 @@
 
 export const aboutData = {
   hero: {
-    title: "Bridging the Gap Between Software Engineering & Professional Skill",
-    subheading: "Armx-Indecodex is an enterprise software developer and professional upskilling partner. We design secure digital systems and prepare modern teams to run them.",
-    primaryCta: "Explore Technology Solutions",
-    secondaryCta: "Discover Upskilling Programs"
+    title: "Accelerating Careers Through Professional Certification Training & Hands-On Learning",
+    subheading: "StudyGrinder is a professional certification training and learning platform. We empower individuals and technical teams to master industry-recognized credentials and real-world technology frameworks.",
+    primaryCta: "Explore Certification Programs",
+    secondaryCta: "Talk to a Training Advisor"
   },
   whoWeAre: {
-    heading: "A Dual-Engine Technology Firm",
-    description: "Armx-Indecodex Pvt Ltd was established with a singular focus: solving organization-level digital friction. We operate at the intersection of custom software development and corporate upskilling. We believe that software is only as powerful as the team running it, and teams are only as efficient as the platforms they use.",
+    heading: "A Career-Focused Learning & Certification Platform",
+    description: "StudyGrinder was established with a clear mission: helping professionals and organizations bridge skill gaps and prepare for globally recognized certifications. With structured learning blueprints, expert-led guidance, and hands-on lab environments, we prepare learners for exam confidence and real-world execution. As an additional enterprise capability, we also engineer bespoke software solutions for organizations requiring tailored systems.",
     painPointsSolved: [
-      "Rigid, overpriced software architectures with high license overheads.",
-      "Skill disconnects between university curriculums and modern developer stacks.",
-      "Fragmented digital transformations lacking consistent post-release support."
+      "Lack of structured exam blueprints and practical labs in traditional coaching.",
+      "High certification failure rates due to outdated or generic practice materials.",
+      "Corporate skill gaps between existing teams and emerging cloud/cyber requirements."
     ]
   },
   story: {
     heading: "Our Journey & Philosophy",
     paragraphs: [
-      "Founded in 2021 by Parichay Singh Rana, Armx-Indecodex started as a software consultancy aiming to eliminate user-licensing markup penalties for mid-market clients. As we deployed custom CRM and logistics architectures, we noticed a recurring barrier: clients struggled to onboard internal teams to modern tech stacks.",
-      "We realized that building custom software and offering professional upskilling are two sides of the same coin. By unifying custom software development with professional upskilling, we ensure that digital systems are backed by competent, hands-on engineers.",
-      "Today, we deliver high-performance headless portals, mobile apps, and automated accounting engines while upskilling hundreds of working professionals through real-world developer workflows."
+      "Founded by Parichay Singh Rana, StudyGrinder was built to demystify complex IT and governance certifications. We saw that professionals were overwhelmed by disjointed study guides and lacked practical frameworks needed for real project confidence.",
+      "We developed outcome-oriented training tracks across Cloud Architecture, Cybersecurity, ISO Standards, and Agile Delivery. By combining verified examination blueprints with practical lab scenarios, StudyGrinder empowers candidates to pass their exams and apply skills immediately on the job.",
+      "Today, StudyGrinder supports over 400+ certification programs across individual learners and corporate engineering teams, while providing enterprise software engineering services as a secondary technical capability."
     ]
   },
   missionVision: {
     mission: {
       title: "Our Mission",
-      statement: "To deliver high-performance, open-source aligned custom software solutions and practical, B2B-relevant upskilling that builds operational capability."
+      statement: "To provide world-class, structured certification training, exam preparation, and career-oriented learning that transforms professionals and strengthens technical teams."
     },
     vision: {
       title: "Our Vision",
-      statement: "To become a trusted global partner in digital transformation, recognized for engineering high-integrity systems and developing competent technology leaders."
+      statement: "To be the most trusted global certification training and learning platform, recognized for high-quality instruction, practical mastery, and career outcomes."
     }
   },
   coreValues: [
@@ -98,10 +98,10 @@ export const aboutData = {
     }
   },
   timeline: [
-    { year: "2021", title: "Foundation", desc: "Armx-Indecodex was founded by Parichay Singh Rana to deliver custom CRM and portal systems." },
-    { year: "2022", title: "B2B Expansion", desc: "Deployed customized agricultural trade portals and headless catalog systems for global clients." },
-    { year: "2023", title: "Upskilling Integration", desc: "Launched unified developer training to bridge the gap between academic theory and active software stacks." },
-    { year: "2024", title: "Scale", desc: "Crossed 300,000+ total platform interactions and rolled out auto-scaling microservice setups." }
+    { year: "2021", title: "Foundation", desc: "Founded by Parichay Singh Rana to deliver high-impact technical education and custom portals." },
+    { year: "2022", title: "B2B Expansion", desc: "Expanded into enterprise certification training and specialized corporate upskilling programs." },
+    { year: "2023", title: "Catalog Scaling", desc: "Grew curriculum to over 400+ certification programs across Cloud, Cybersecurity, and Agile." },
+    { year: "2024", title: "StudyGrinder Brand", desc: "Unified our professional learning ecosystem under StudyGrinder to accelerate student and team credentials." }
   ],
 
   team: [

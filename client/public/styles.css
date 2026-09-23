@@ -21,14 +21,7 @@
   height: 40px;
 }
 
-/* SEO Header styling */
-header {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
+/* SEO Header styling removed */
 
 /* Basic styles for faster page loading */
 body {
