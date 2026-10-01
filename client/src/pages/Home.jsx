@@ -34,7 +34,7 @@ import isacaLogo from "../assets/Isaca.svg";
 import awsLogo from "../assets/aws-kartikey.png";
 import microsoftLogo from "../assets/microsoft-kartikey.png";
 import ciscoLogo from "../assets/Cisco/CiscoIcon.png";
-import studygrinderLogo from "../assets/studygrinder-logo.jpg";
+import studygrinderLogo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 import heroVideo from "../assets/training-video.mp4";
 import heroPoster from "../assets/herobg.jpg";
 

@@ -12,15 +12,15 @@ const Policy = () => {
       {/* SEO Content for this Page  */}
       <Helmet>
         <title>
-          Our Policy | IT Training & Certifications | Armx-Indecodex
+          Our Policy | IT Training & Certifications | Study Grinder
         </title>
         <meta
           name="description"
-          content="Learn about our Privacy Policy, Terms & Conditions, refund policy, and other terms. This page addresses all your questions. Reach out to Armx-Indecodex and begin your IT growth journey today!"
+          content="Learn about our Privacy Policy, Terms & Conditions, refund policy, and other terms. This page addresses all your questions. Reach out to Study Grinder and begin your IT growth journey today!"
         />
         <link
           rel="canonical"
-          href="https://www.Armx-Indecodextech.in/Our-Policies"
+          href="https://www.studygrinder.com/policies"
         />
       </Helmet>
 
@@ -41,7 +41,7 @@ const Policy = () => {
           </h1>
           <h2 className={policypage.heading}>RETURNS</h2>
           <p className={policypage.paragraph}>
-            Armx-Indecodex provides certificates for various courses,
+            Study Grinder provides certificates for various courses,
             including PMP, Azure, and many more. These courses are designed to
             ensure that working professionals can attend and complete them
             within their contexts and limitations in time. The courses are
@@ -73,8 +73,8 @@ const Policy = () => {
             business days. Please note that it may take some time for your bank
             or credit card company to process and post the refund. If more than
             15 business days have passed since we approved your return, please
-            contact us at Sales@Armx-Indecodextech.info. For more information, visit
-            Armx-Indecodextech.in, where we offer a range of courses, including PMP,
+            contact us at register@studygrinder.com. For more information, visit
+            <a href="https://www.studygrinder.com"> https://www.studygrinder.com</a>, where we offer a range of courses, including PMP,
             Azure, and many more, and provide certificates upon completion.
           </p>
         </div>

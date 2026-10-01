@@ -1,6 +1,6 @@
 {
-  "short_name": "Armx-Indecodex",
-  "name": "Armx-Indecodex",
+  "short_name": "StudyGrinder",
+  "name": "StudyGrinder",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#0f172a",
+  "theme_color": "#1E40AF",
   "background_color": "#ffffff"
 }

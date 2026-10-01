@@ -60,8 +60,9 @@ const Navbar = () => {
             <img
               src={logo}
               alt="StudyGrinder — Accelerate Your Learning"
-              className="h-20 sm:h-20 w-auto object-contain transition-transform group-hover:scale-[1.03]"              width="220"
-              height="56"
+              className="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-[1.03]"
+              width="80"
+              height="80"
             />
           </Link>
 

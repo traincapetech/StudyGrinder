@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import html2pdf from "html2pdf.js";
-import Logo from "../../assets/Traincape_logo-removebg-preview.png";
+import Logo from "../../assets/Study_Grinder_Logo.jpg.jpeg";
 
 const CertificateTemplate = () => {
   const location = useLocation();
@@ -114,7 +114,7 @@ const CertificateTemplate = () => {
 
               {/* TOP: Logo */}
               <div style={{ textAlign: "center", zIndex: 1 }}>
-                <img src={Logo} alt="Armx-Indecodex" style={{ height: "50px", marginBottom: "4px" }} />
+                <img src={Logo} alt="StudyGrinder" style={{ height: "50px", marginBottom: "4px" }} />
                 <p style={{ fontSize: "10px", color: "#666", letterSpacing: "2px", textTransform: "uppercase" }}>
                   ISO/IEC 27001:2022
                 </p>
