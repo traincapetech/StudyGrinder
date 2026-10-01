@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../slices/userSlice";
 import banner from "../assets/loginbanner.jpeg";
-import logo from "../assets/TT.png";
+import logo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 import Lottie from "lottie-react";
 import signup from "../assets/signup.json";
 

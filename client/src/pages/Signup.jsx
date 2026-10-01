@@ -480,7 +480,7 @@ import { signupUser } from "../slices/userSlice";
 import banner from "../../src/assets/loginbanner.jpeg";
 import Lottie from "lottie-react";
 import signup from "../assets/signup.json";
-import logo from "../assets/TT.png";
+import logo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 
 const Signup = () => {
   const navigate = useNavigate();

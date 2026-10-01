@@ -123,10 +123,10 @@ const VoucherSuccess = () => {
           <h3>Need Help?</h3>
           <p>If you have any questions about your voucher or need assistance, please contact our support team:</p>
           <div className="support-options">
-            <a href="mailto:support@Armx-Indecodextech.in" className="support-btn">
+            <a href="mailto:register@studygrinder.com" className="support-btn">
               📧 Email Support
             </a>
-            <a href="tel:+1234567890" className="support-btn">
+            <a href="tel:+44 1253 928501" className="support-btn">
               📞 Call Support
             </a>
           </div>

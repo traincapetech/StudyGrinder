@@ -542,155 +542,18 @@ Action Required: Please send calendar invite or call client at the scheduled hou
               </ul>
             </div>
 
-            {/* Scheduler Widget */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-200/60 relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-16 w-16 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-2xl pointer-events-none" />
-
-              <h3 className="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2.5">
-                <Calendar className="h-5.5 w-5.5 text-blue-600" />
-                <span>Discovery Call Scheduler</span>
-              </h3>
-              <p className="text-xs md:text-sm text-slate-500 mb-6">
-                Book a quick 1-on-1 discovery slot with our Technical Lead.
-              </p>
-
-              {isCallScheduled ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-blue-50/70 border border-blue-100 rounded-xl p-5 text-center"
-                >
-                  <CheckCircle2 className="h-10 w-10 text-emerald-650 mx-auto mb-3 animate-bounce" />
-                  <h4 className="font-bold text-slate-900 mb-1">Time Block Requested!</h4>
-                  <p className="text-xs text-slate-650 mb-3">
-                    We've saved your slot for {selectedDate} at {selectedTime}. You'll receive a confirmation email shortly.
-                  </p>
-                  <button
-                    onClick={() => setIsCallScheduled(false)}
-                    className="text-xs text-blue-600 font-bold hover:underline"
-                  >
-                    Reschedule slot
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleScheduleCall} className="space-y-4">
-                  {/* Date Selector Grid */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                      Select Date (Tomorrow onwards)
-                    </label>
-                    <div className="grid grid-cols-5 gap-2">
-                      {schedulerDates.map((d) => (
-                        <button
-                          key={d.raw}
-                          type="button"
-                          onClick={() => setSelectedDate(d.raw)}
-                          className={`py-2 px-1 rounded-lg text-center border transition-all text-xs font-semibold flex flex-col items-center justify-center ${selectedDate === d.raw
-                              ? "bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-500/20"
-                              : "border-slate-200 hover:border-slate-350 bg-slate-50 text-slate-700"
-                            }`}
-                        >
-                          <span className="text-[10px] uppercase opacity-75">{d.formatted.split(" ")[0]}</span>
-                          <span className="text-sm font-extrabold mt-0.5">{d.formatted.split(" ")[2]}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Time Slot Grid */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                      Select Available Slot (IST Timezone)
-                    </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {timeSlots.map((slot) => (
-                        <button
-                          key={slot}
-                          type="button"
-                          onClick={() => setSelectedTime(slot)}
-                          className={`py-2 rounded-lg border text-xs font-medium transition-all ${selectedTime === slot
-                              ? "bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-500/20"
-                              : "border-slate-200 hover:border-slate-350 bg-slate-50 text-slate-700"
-                            }`}
-                        >
-                          {slot}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Contact Info for Scheduler */}
-                  <div className="space-y-3 pt-2 border-t border-slate-100">
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                      Your Contact Info
-                    </label>
-                    <div className="space-y-2">
-                      <input
-                        type="text"
-                        name="name"
-                        id="scheduler-name"
-                        aria-label="Your Name"
-                        placeholder="Your Name *"
-                        value={payload.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50/50 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                      />
-                      <div className="grid grid-cols-2 gap-2">
-                        <input
-                          type="email"
-                          name="email"
-                          id="scheduler-email"
-                          aria-label="Business Email"
-                          placeholder="Business Email *"
-                          value={payload.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50/50 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                        />
-                        <input
-                          type="tel"
-                          name="phoneNumber"
-                          id="scheduler-phone"
-                          aria-label="Phone or WhatsApp Number"
-                          placeholder="Phone / WhatsApp *"
-                          value={payload.phoneNumber}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50/50 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isScheduling}
-                    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-lg transition text-xs flex items-center justify-center gap-2 shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    <span>{isScheduling ? "Requesting Slot..." : "Reserve Discovery Session"}</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </button>
-                </form>
-              )}
-            </div>
-
+            
             {/* Quick Contacts */}
             <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-200/60 space-y-4">
               <h4 className="font-bold text-slate-950 uppercase tracking-wider text-xs border-b border-slate-100 pb-2">
                 Escalation Contacts
               </h4>
               <ul className="space-y-3.5 text-xs sm:text-sm text-slate-650">
-                <li className="flex items-start gap-3">
-                  <MapPin className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">
-                    Sector 7, Dwarka, New Delhi, Delhi 110077, India
-                  </span>
-                </li>
+                
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-blue-600 flex-shrink-0" />
-                  <a href="mailto:sales@Armx-Indecodextech.info" className="hover:text-blue-600 hover:underline transition-colors font-semibold">
-                    sales@Armx-Indecodextech.info
+                  <a href="mailto:register@studygrinder.com" className="hover:text-blue-600 hover:underline transition-colors font-semibold">
+                    register@studygrinder.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
@@ -701,7 +564,7 @@ Action Required: Please send calendar invite or call client at the scheduled hou
                 </li>
                 <li className="flex items-center gap-3">
                   <BsWhatsapp className="h-4 w-4 text-emerald-600 flex-shrink-0" />
-                  <a href="https://wa.me/+44 1253 928501" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 hover:underline transition-colors font-semibold">
+                  <a href="https://wa.me/+441253928501" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 hover:underline transition-colors font-semibold">
                     +44 1253 928501 (WhatsApp Business)
                   </a>
                 </li>

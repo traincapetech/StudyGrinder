@@ -13,7 +13,7 @@ import {
   Info,
   Mail
 } from "lucide-react";
-import logo from "../assets/studygrinder-logo.jpg";
+import logo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 import DashboardHeader from "../pages/DashboardHeader";
 import AdvisorModal from "./AdvisorModal";
 import ReactDOM from "react-dom";
@@ -60,9 +60,8 @@ const Navbar = () => {
             <img
               src={logo}
               alt="StudyGrinder — Accelerate Your Learning"
-              className="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-[1.02]"
-              width="180"
-              height="44"
+              className="h-20 sm:h-20 w-auto object-contain transition-transform group-hover:scale-[1.03]"              width="220"
+              height="56"
             />
           </Link>
 

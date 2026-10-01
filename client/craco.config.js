@@ -46,13 +46,28 @@ module.exports = {
           })
         );
 
-        // Optimize CSS
+        // Optimize JS & CSS
         webpackConfig.optimization.minimizer = [
           new TerserPlugin({
             terserOptions: {
+              parse: {
+                ecma: 8,
+              },
               compress: {
+                ecma: 5,
+                warnings: false,
+                comparisons: false,
+                inline: 2,
                 drop_console: true,
                 drop_debugger: true,
+              },
+              mangle: {
+                safari10: true,
+              },
+              output: {
+                ecma: 5,
+                comments: false,
+                ascii_only: true,
               },
             },
           }),

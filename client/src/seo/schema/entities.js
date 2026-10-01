@@ -65,7 +65,7 @@ export const STUDYGRINDER_ORG_INFO = {
   logo: "https://studygrinder.com/studygrinder-logo.jpg",
   description: "Professional Certification Training and Career-Focused Learning Platform for individuals and organizations.",
   telephone: "+441253928501",
-  email: "support@studygrinder.com",
+  email: "register@studygrinder.com",
   address: {
     streetAddress: "Ramphal Chowk Road, Dwarka Sector 7",
     addressLocality: "New Delhi",

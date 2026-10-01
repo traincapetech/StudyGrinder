@@ -75,7 +75,7 @@ const sendVoucherEmail = async (to, voucherData) => {
           
           <div style="text-align: center; margin-top: 30px;">
             <p style="color: #666; margin-bottom: 20px;">Need help? Contact our support team</p>
-            <a href="mailto:support@Armx-Indecodextech.in" style="background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block;">Contact Support</a>
+            <a href="mailto:register@studygrinder.com" style="background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block;">Contact Support</a>
           </div>
         </div>
         

@@ -14,7 +14,7 @@ import {
   Layers,
   ArrowRight
 } from "lucide-react";
-import logo from "../assets/studygrinder-logo.jpg";
+import logo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 import AdvisorModal from "./AdvisorModal";
 
 export default function Footer() {
@@ -148,7 +148,7 @@ export default function Footer() {
                 <img
                   src={logo}
                   alt="StudyGrinder"
-                  className="h-10 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
                 />
               </div>
               <div className="flex flex-col">
@@ -168,8 +168,8 @@ export default function Footer() {
             <div className="space-y-2.5 text-xs text-slate-400 pt-2 border-t border-slate-800">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-orange-400 shrink-0" />
-                <a href="mailto:support@studygrinder.com" className="hover:text-white transition-colors">
-                  support@studygrinder.com
+                <a href="mailto:register@studygrinder.com" className="hover:text-white transition-colors">
+                  register@studygrinder.com
                 </a>
               </div>
               <div className="flex items-center gap-2">

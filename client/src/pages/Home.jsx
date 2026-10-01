@@ -278,7 +278,7 @@ export default function Home() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 400+ certifications (e.g. Azure, CISSP, ISO 27001, CompTIA Security+)..."
+                placeholder="Search 400+ certifications (e.g. CISSP, ISO 27001, Security+)..."
                 className="w-full px-3 py-3 text-slate-900 placeholder-slate-400 text-sm sm:text-base bg-transparent outline-none font-medium"
               />
               <button
@@ -329,21 +329,7 @@ export default function Home() {
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
 
-            <button
-              onClick={() => openAdvisor()}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-white font-semibold text-base border border-slate-700 backdrop-blur-md transition-all duration-200 cursor-pointer"
-            >
-              <PhoneCall className="w-4 h-4 mr-2 text-blue-400" />
-              <span>Talk to a Training Advisor</span>
-            </button>
-
-            <Link
-              to="/corporate-training"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-transparent hover:bg-white/5 text-slate-300 hover:text-white font-semibold text-sm transition-all duration-200"
-            >
-              <Building2 className="w-4 h-4 mr-2 text-slate-400" />
-              <span>Corporate Training</span>
-            </Link>
+            
           </motion.div>
 
           {/* Factual Trust Metrics */}

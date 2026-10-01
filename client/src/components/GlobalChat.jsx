@@ -122,7 +122,7 @@ const GlobalChat = () => {
             setCurrentFlow(chatbotData.flows[flowId]);
         } else {
             setCurrentFlow({
-                title: "Armx-Indecodex Support",
+                title: "Study Grinder Support",
                 options: [
                     { label: "What services do you provide?", answer: "We provide IT training, certifications, and consultancy services." },
                     { label: "Where are you located?", answer: "We have a global presence. Check our Contact Us page." },
