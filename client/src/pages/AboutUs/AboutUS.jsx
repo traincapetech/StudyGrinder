@@ -22,16 +22,16 @@ export default function AboutUS() {
     <div className="bg-white min-h-screen text-slate-650 overflow-hidden font-sans">
       {/* Helmet SEO Optimization */}
       <Helmet>
-        <title>Our Story &amp; Tech Philosophy | Armx-Indecodex</title>
+        <title>Our Story &amp; Tech Philosophy | Study Grinder</title>
         <meta
           name="description"
-          content="Armx-Indecodex is an enterprise software developer and professional upskilling partner. Learn our story, vision, core values, and engineering philosophies."
+          content="Study Grinder is an enterprise software developer and professional upskilling partner. Learn our story, vision, core values, and engineering philosophies."
         />
-        <meta name="keywords" content="Armx-Indecodex story, custom software development company, professional upskilling, Parichay Rana CEO" />
-        <link rel="canonical" href="https://www.Armx-Indecodextech.in/about-us" />
-        <meta property="og:title" content="Our Story &amp; Tech Philosophy | Armx-Indecodex" />
-        <meta property="og:description" content="Armx-Indecodex is an enterprise software developer and professional upskilling partner. Learn our story, vision, core values, and engineering philosophies." />
-        <meta property="og:url" content="https://Armx-Indecodextech.in/about-us" />
+        <meta name="keywords" content="Study Grinder story, custom software development company, professional upskilling, Parichay Rana CEO" />
+        <link rel="canonical" href="https://www.studygrinder.in/about-us" />
+        <meta property="og:title" content="Our Story &amp; Tech Philosophy | Study Grinder" />
+        <meta property="og:description" content="Study Grinder is an enterprise software developer and professional upskilling partner. Learn our story, vision, core values, and engineering philosophies." />
+        <meta property="og:url" content="https://studygrinder.in/about-us" />
         <meta property="og:type" content="website" />
 
         {/* Organization JSON-LD Schema */}
@@ -39,9 +39,9 @@ export default function AboutUS() {
           {JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Organization",
-            "name": "Armx-Indecodex Pvt Ltd",
-            "url": "https://Armx-Indecodextech.in",
-            "logo": "https://Armx-Indecodextech.in/assets/TT.png",
+            "name": "Study Grinder",
+            "url": "https://studygrinder.in",
+            "logo": "https://studygrinder.in/assets/TT.png",
             "founder": {
               "@type": "Person",
               "name": "Parichay Singh Rana"

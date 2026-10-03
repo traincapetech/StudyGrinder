@@ -6,6 +6,12 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 module.exports = {
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
+      // Suppress source map warnings from third-party packages (e.g., html2pdf.js)
+      webpackConfig.ignoreWarnings = [
+        ...(webpackConfig.ignoreWarnings || []),
+        /Failed to parse source map/,
+      ];
+
       // Production optimizations
       if (env === 'production') {
         // Add chunk loading error handling

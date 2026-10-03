@@ -2,28 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Mail,
-  Phone,
-  MapPin,
   Award,
-  ChevronDown,
   ChevronRight,
   ShieldCheck,
   BookOpen,
   Building2,
   GraduationCap,
-  Layers,
-  ArrowRight
+  Layers
 } from "lucide-react";
 import logo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 import AdvisorModal from "./AdvisorModal";
 
 export default function Footer() {
-  const [openSection, setOpenSection] = useState(null);
   const [advisorModalOpen, setAdvisorModalOpen] = useState(false);
-
-  const toggleSection = (sectionKey) => {
-    setOpenSection(openSection === sectionKey ? null : sectionKey);
-  };
 
   const footerGroups = [
     {
@@ -98,7 +89,7 @@ export default function Footer() {
       links: [
         { label: "About StudyGrinder", path: "/about-us" },
         { label: "Contact Us", path: "/contact-us" },
-        { label: "Career Opportunities", path: "/career" },
+        // { label: "Career Opportunities", path: "/career" },
         { label: "Privacy Policy", path: "/policies" },
         { label: "Terms & Conditions", path: "/terms-and-conditions" },
       ],

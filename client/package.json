@@ -67,7 +67,7 @@
     "dev": "craco start",
     "prebuild": "node scripts/prepare-build.js && node scripts/generate-sitemap.js",
     "build": "craco build",
-    "postbuild": "react-snap",
+    "postbuild": "node scripts/run-react-snap.js",
     "scrape:gipmc": "node scripts/scrape-gipmc-certifications.js",
     "build:production": "node scripts/build-production.js",
     "build:analyze": "npm run build && npm run analyze",

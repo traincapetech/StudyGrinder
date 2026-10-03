@@ -37,7 +37,7 @@ const Policy = () => {
               color: "#2c2d30",
             }}
           >
-            Armx-Indecodex - Privacy Policy
+            Study Grinder - Privacy Policy
           </h1>
           <h2 className={policypage.heading}>RETURNS</h2>
           <p className={policypage.paragraph}>

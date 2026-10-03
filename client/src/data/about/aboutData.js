@@ -19,7 +19,7 @@ export const aboutData = {
   story: {
     heading: "Our Journey & Philosophy",
     paragraphs: [
-      "Founded by Parichay Singh Rana, StudyGrinder was built to demystify complex IT and governance certifications. We saw that professionals were overwhelmed by disjointed study guides and lacked practical frameworks needed for real project confidence.",
+      "StudyGrinder was built to demystify complex IT and governance certifications. We saw that professionals were overwhelmed by disjointed study guides and lacked practical frameworks needed for real project confidence.",
       "We developed outcome-oriented training tracks across Cloud Architecture, Cybersecurity, ISO Standards, and Agile Delivery. By combining verified examination blueprints with practical lab scenarios, StudyGrinder empowers candidates to pass their exams and apply skills immediately on the job.",
       "Today, StudyGrinder supports over 400+ certification programs across individual learners and corporate engineering teams, while providing enterprise software engineering services as a secondary technical capability."
     ]
@@ -98,7 +98,7 @@ export const aboutData = {
     }
   },
   timeline: [
-    { year: "2021", title: "Foundation", desc: "Founded by Parichay Singh Rana to deliver high-impact technical education and custom portals." },
+    { year: "2021", title: "Foundation", desc: "Study Grinder founded to deliver high-impact technical education and custom portals." },
     { year: "2022", title: "B2B Expansion", desc: "Expanded into enterprise certification training and specialized corporate upskilling programs." },
     { year: "2023", title: "Catalog Scaling", desc: "Grew curriculum to over 400+ certification programs across Cloud, Cybersecurity, and Agile." },
     { year: "2024", title: "StudyGrinder Brand", desc: "Unified our professional learning ecosystem under StudyGrinder to accelerate student and team credentials." }

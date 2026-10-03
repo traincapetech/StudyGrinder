@@ -10,13 +10,13 @@ const WhatsAppPopup = ({
 }) => {
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleIndiaClick = () => {
-    window.open("https://wa.me/+916280281505", "_blank");
-    setShowPopup(false);
-  };
+  // const handleIndiaClick = () => {
+  //   window.open("https://wa.me/+916280281505", "_blank");
+  //   setShowPopup(false);
+  // };
 
   const handleInternationalClick = () => {
-    window.open("https://wa.me/+441253928501", "_blank");
+    window.open("https://wa.me/+18255859201", "_blank");
     setShowPopup(false);
   };
 
@@ -128,7 +128,7 @@ const WhatsAppPopup = ({
               gap: '15px',
               margin: '20px 0'
             }}>
-              <button
+              {/* <button
                 onClick={handleIndiaClick}
                 style={{
                   padding: '15px 30px',
@@ -151,7 +151,7 @@ const WhatsAppPopup = ({
                 }}
               >
                 🇮🇳 India
-              </button>
+              </button> */}
               
               <button
                 onClick={handleInternationalClick}
@@ -175,7 +175,7 @@ const WhatsAppPopup = ({
                   e.target.style.boxShadow = 'none';
                 }}
               >
-                🌍 Outside India
+                🌍 Connect on WhatsApp
               </button>
             </div>
             

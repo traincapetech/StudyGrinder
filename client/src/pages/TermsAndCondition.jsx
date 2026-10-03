@@ -52,9 +52,8 @@ const TermsAndCondition = () => {
           automatically on your original payment method within 10 business days.
           Please note that it may take some time for your bank or credit card
           company to process and post the refund. If more than 15 business days
-          have passed since we approved your return, please contact us at
-          Sales@studygrinder.in. For more information, visit
-          studygrinder.in, where we offer a range of courses, including PMP,
+          have passed since we approved your return, please contact us at <a href="mailto:register@studygrinder.com"> register@studygrinder.com</a>. For more information, visit
+          <a href="https://www.studygrinder.com"> https://www.studygrinder.com</a>, where we offer a range of courses, including PMP,
           Azure, and many more, and provide certificates upon completion.
         </p>
       </div>

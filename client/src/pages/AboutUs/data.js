@@ -3,7 +3,7 @@ const translations = {
   en: {
     footer: {
       aboutDesc:
-        " Armx-Indecodex's specific methodologies for measuring and prioritizing customer satisfaction. Many companies use various methods to gauge and prioritize customer satisfaction.",
+        " Study Grinder's specific methodologies for measuring and prioritizing customer satisfaction. Many companies use various methods to gauge and prioritize customer satisfaction.",
       workingTime: "Mon - Sat: 11AM - 7PM",
       sundayClosed: "Sunday Closed",
       address:
@@ -45,24 +45,24 @@ const translations = {
       office: "Office",
       news: "News",
     },
-    aboutHeader: "About Armx-Indecodex",
+    aboutHeader: "About Study Grinder",
     empowering:
       "Empowering careers through professional IT training and certification programs",
     home: "Home",
     aboutUs: "About Us",
     ourStory: "Our Story",
     storySubtitle:
-      "The journey of Armx-Indecodex started with a vision to transform IT education",
+      "The journey of Study Grinder started with a vision to transform IT education",
     founder: "Founder & CEO",
     storyPara1:
-      "Armx-Indecodex is committed to transforming how organizations harness the power of modern tech. We specialize in delivering smart, scalable solutions—from enterprise software to mobile apps—that solve real problems and drive measurable results.",
+      "Study Grinder is committed to transforming how organizations harness the power of modern tech. We specialize in delivering smart, scalable solutions—from enterprise software to mobile apps—that solve real problems and drive measurable results.",
     storyPara2:
       "Our mission is simple: to empower individuals and businesses through cutting-edge digital tools, hands-on training, and globally recognized certifications. We don’t just build tech—we build futures.",
     storyPara3:
-      "Backed by a team of experts and global partnerships, Armx-Indecodex has helped professionals launch impactful careers and enabled companies to thrive in an ever-evolving digital landscape.",
+      "Backed by a team of experts and global partnerships, Study Grinder has helped professionals launch impactful careers and enabled companies to thrive in an ever-evolving digital landscape.",
     ourFoundation: "Our Foundation",
     foundationSubtitle:
-      "The principles that guide everything we do at Armx-Indecodex",
+      "The principles that guide everything we do at Study Grinder",
     ourVision: "Our Vision",
     visionDesc:
       "To be the premier provider of IT education, recognized for excellence in training and producing industry-ready professionals who lead technological innovation.",
@@ -133,7 +133,7 @@ const translations = {
   hi: {
     footer: {
       aboutDesc:
-        "Armx-Indecodex की ग्राहक संतुष्टि को मापने और प्राथमिकता देने की विशिष्ट कार्यप्रणालियाँ। कई कंपनियाँ ग्राहक संतुष्टि को मापने और प्राथमिकता देने के विभिन्न तरीकों का उपयोग करती हैं।",
+        "Study Grinder की ग्राहक संतुष्टि को मापने और प्राथमिकता देने की विशिष्ट कार्यप्रणालियाँ। कई कंपनियाँ ग्राहक संतुष्टि को मापने और प्राथमिकता देने के विभिन्न तरीकों का उपयोग करती हैं।",
       workingTime: "सोम - शनि: 11AM - 7PM",
       sundayClosed: "रविवार बंद",
       address:
@@ -174,24 +174,24 @@ const translations = {
       office: "कार्यालय",
       news: "समाचार",
     },
-    aboutHeader: "ट्रेनकेप टेक्नोलॉजी के बारे में",
+    aboutHeader: "Study Grinder के बारे में",
     empowering:
       "पेशेवर आईटी प्रशिक्षण और प्रमाणीकरण कार्यक्रमों के माध्यम से करियर को सशक्त बनाना",
     home: "होम",
     aboutUs: "हमारे बारे में",
     ourStory: "हमारी कहानी",
     storySubtitle:
-      "ट्रेनकेप टेक्नोलॉजी की यात्रा आईटी शिक्षा को बदलने के दृष्टिकोण से शुरू हुई",
+      "Study Grinder की यात्रा आईटी शिक्षा को बदलने के दृष्टिकोण से शुरू हुई",
     founder: "संस्थापक और सीईओ",
     storyPara1:
-      "ट्रेनकेप टेक्नोलॉजी की स्थापना 2021 में परिचय सिंह राणा द्वारा व्यवसायों को तकनीक के प्रति अपने दृष्टिकोण को क्रांतिकारी बनाने के दृष्टिकोण के साथ की गई थी। उद्योग में वर्षों के अनुभव के साथ, हमने एक ऐसी कंपनी की आवश्यकता को पहचाना जो अनुकूलित, विश्वसनीय और अत्याधुनिक तकनीकी समाधान प्रदान कर सके।",
+      "Study Grinder की स्थापना 2021 में व्यवसायों को तकनीक के प्रति अपने दृष्टिकोण को क्रांतिकारी बनाने के दृष्टिकोण के साथ की गई थी। उद्योग में वर्षों के अनुभव के साथ, हमने एक ऐसी कंपनी की आवश्यकता को पहचाना जो अनुकूलित, विश्वसनीय और अत्याधुनिक तकनीकी समाधान प्रदान कर सके।",
     storyPara2:
       "हमारा मिशन व्यवसायों को नवीनतम तकनीकों और नवाचारों का लाभ उठाकर विकास, दक्षता और नवाचार को बढ़ावा देना है। हमारी विशेषज्ञों की टीम को कस्टम सॉफ्टवेयर समाधान, मोबाइल ऐप और वेब एप्लिकेशन विकसित और कार्यान्वित करने का व्यापक अनुभव है जो हमारे ग्राहकों की विशिष्ट आवश्यकताओं को पूरा करते हैं।",
     storyPara3:
       "आज, हमें अनेक पेशेवरों को प्रशिक्षित करने पर गर्व है जो प्रमुख तकनीकी कंपनियों में भूमिकाएं हासिल कर चुके हैं। प्रमुख प्रमाणन निकायों के साथ हमारी साझेदारी हमें व्यापक प्रशिक्षण कार्यक्रम प्रदान करने में सक्षम बनाती है जो विश्व स्तर पर मान्यता प्राप्त हैं।",
     ourFoundation: "हमारी नींव",
     foundationSubtitle:
-      "वे सिद्धांत जो ट्रेनकेप टेक्नोलॉजी में हमारे हर काम का मार्गदर्शन करते हैं",
+      "वे सिद्धांत जो Study Grinder में हमारे हर काम का मार्गदर्शन करते हैं",
     ourVision: "हमारी दृष्टि",
     visionDesc:
       "आईटी शिक्षा का प्रमुख प्रदाता बनना, जो प्रशिक्षण में उत्कृष्टता और उद्योग-तैयार पेशेवरों को तैयार करने के लिए मान्यता प्राप्त है जो तकनीकी नवाचार का नेतृत्व करते हैं।",
@@ -222,7 +222,7 @@ const translations = {
     freeAssess: "मुफ्त मूल्यांकन",
     assessDesc:
       "शक्तियों और सुधार के क्षेत्रों की पहचान करने के लिए व्यापक कौशल मूल्यांकन, जो आपको अपने पेशेवर विकास के लिए सर्वोत्तम मार्ग चुनने में मदद करता है।",
-    whyChoose: "ट्रेनकेप टेक्नोलॉजी को क्यों चुनें",
+    whyChoose: "Study Grinder को क्यों चुनें",
     whySubtitle: "वह क्या है जो हमें अन्य प्रदाताओं से अलग करता है",
     expInstructors: "उद्योग-अनुभवी प्रशिक्षक",
     instructorsDesc:
@@ -262,7 +262,7 @@ const translations = {
   nl: {
     footer: {
       aboutDesc:
-        "Armx-Indecodex's specifieke methodologieën voor het meten en prioriteren van klanttevredenheid. Veel bedrijven gebruiken verschillende methoden om klanttevredenheid te meten en te prioriteren.",
+        "Study Grinder's specifieke methodologieën voor het meten en prioriteren van klanttevredenheid. Veel bedrijven gebruiken verschillende methoden om klanttevredenheid te meten en te prioriteren.",
       workingTime: "Ma - Za: 11AM - 7PM",
       sundayClosed: "Zondag Gesloten",
       address:
