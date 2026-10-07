@@ -145,7 +145,7 @@ export default function VisitorCounter() {
       <div className="flex items-center gap-1.5 mb-1">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
         <span className="text-[10px] font-semibold tracking-wider uppercase text-slate-400">
-          Visitors
+         Unique Visitors
         </span>
       </div>
       <div className="bg-slate-900/90 border border-slate-800 rounded-lg px-3 py-1 shadow-inner flex items-center justify-center min-w-[84px]">
