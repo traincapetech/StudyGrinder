@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import { HelmetProvider } from 'react-helmet-async';
 import axios from 'axios';
 import { setUserFromLocalStorage } from "./slices/userSlice";
+import API_BASE_URL from "./config/api";
 
 // Create a web worker for performance monitoring
 const isProduction = process.env.NODE_ENV === 'production';
@@ -56,8 +57,8 @@ if (isProduction) {
 // Preconnect domains are now managed natively in public/index.html to start TLS handshakes earlier.
 
 // Configure axios defaults to optimize API calls
-axios.defaults.baseURL = 'https://Armx-Indecodex-backend-uwoa.onrender.com';
-axios.defaults.timeout = 10000; // 10 seconds timeout
+axios.defaults.baseURL = API_BASE_URL;
+axios.defaults.timeout = 15000; // 15 seconds timeout
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 // Add response interceptor for consistent error handling

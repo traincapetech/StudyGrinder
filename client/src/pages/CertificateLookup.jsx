@@ -1,6 +1,6 @@
-// CertificateLookup.jsx
 import React, { useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../config/api";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import html2canvas from "html2canvas";
@@ -25,7 +25,7 @@ const CertificateLookup = () => {
 
     try {
       const res = await axios.get(
-        `https://Armx-Indecodex-backend-uwoa.onrender.com/certificates/${certificateId}`
+        `${API_BASE_URL}/certificates/${certificateId}`
       );
       if (res.data && res.data.success) {
         setCertificate(res.data.data);

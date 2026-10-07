@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../../../config/api';
 import './VoucherBatches.module.css';
 
 const VoucherBatches = ({ batches, loading, onRefresh, onBatchUpdated }) => {
@@ -20,7 +21,7 @@ const VoucherBatches = ({ batches, loading, onRefresh, onBatchUpdated }) => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        'https://Armx-Indecodex-backend-uwoa.onrender.com/vouchers/batches/price',
+        `${API_BASE_URL}/vouchers/batches/price`,
         {
           batchId,
           price: parseFloat(newPrice)

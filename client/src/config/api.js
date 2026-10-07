@@ -2,7 +2,7 @@
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
   (process.env.NODE_ENV === 'production'
-    ? 'https://Armx-Indecodex-backend-uwoa.onrender.com' // Production URL (or new backend URL when deployed)
+    ? 'https://studygrinder-server.onrender.com' // Live Render Backend
     : 'http://localhost:3001'); // Development URL (Server runs on 3001)
 
 export const API_ENDPOINTS = {

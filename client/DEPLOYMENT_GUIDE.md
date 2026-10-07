@@ -57,12 +57,12 @@ Publish directory: build
 
 #### Step 3: Environment Variables (Optional)
 ```
-REACT_APP_API_URL=https://Armx-Indecodex-backend-1.onrender.com
+REACT_APP_API_URL=https://studygrinder-server.onrender.com
 ```
 
 #### Step 4: Custom Domain Setup
 1. Go to Site settings > Domain management
-2. Add custom domain: `www.Armx-Indecodextech.in`
+2. Add custom domain: `studygrinder.com`
 3. Configure DNS records as instructed by Netlify
 
 ### Option 2: Vercel

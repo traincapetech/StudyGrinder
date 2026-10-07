@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import API_BASE_URL from "../../config/api";
 import BookCard from "./BookCard";
 import Loading from "../loadingPage/Loading";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,7 @@ const BookPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get(`https://Armx-Indecodex-backend-uwoa.onrender.com/books/get-books?page=1&limit=18`);
+      const res = await axios.get(`${API_BASE_URL}/books/get-books?page=1&limit=18`);
       setBooks(res.data);
     } catch (err) {
       setError("Failed to load books. Please try again.");

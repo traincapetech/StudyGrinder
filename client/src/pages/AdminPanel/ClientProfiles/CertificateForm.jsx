@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../../../config/api";
 
 const CertificateForm = () => {
   const [form, setForm] = useState({
@@ -61,8 +62,8 @@ const CertificateForm = () => {
 
       console.log("Sending payload:", payload); // Debug log
 
-      // Use the full URL to ensure we're hitting the right endpoint
-      const response = await axios.post("https://Armx-Indecodex-backend-uwoa.onrender.com/certificates", payload, {
+      // Use API_BASE_URL to hit the configured backend
+      const response = await axios.post(`${API_BASE_URL}/certificates`, payload, {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -196,7 +197,7 @@ const CertificateForm = () => {
       {/* Debug Information */}
       <div className="mt-4 p-4 bg-gray-100 rounded text-sm">
         <h3 className="font-bold mb-2">Debug Info:</h3>
-        <p><strong>API Endpoint:</strong> https://Armx-Indecodex-backend-uwoa.onrender.com/certificates</p>
+        <p><strong>API Endpoint:</strong> {API_BASE_URL}/certificates</p>
         <p><strong>Current Form Data:</strong></p>
         <pre className="bg-white p-2 rounded mt-1 text-xs overflow-auto">
           {JSON.stringify(form, null, 2)}
