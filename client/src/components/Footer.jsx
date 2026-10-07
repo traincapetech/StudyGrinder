@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import logo from "../assets/Study_Grinder_Logo.jpg.jpeg";
 import AdvisorModal from "./AdvisorModal";
+import VisitorCounter from "./VisitorCounter";
 
 export default function Footer() {
   const [advisorModalOpen, setAdvisorModalOpen] = useState(false);
@@ -213,8 +214,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-14 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="mt-14 pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} StudyGrinder. All rights reserved.</p>
+          <VisitorCounter />
           <div className="flex items-center gap-6">
             <Link to="/policies" className="hover:text-slate-300 transition-colors">
               Privacy Policy
