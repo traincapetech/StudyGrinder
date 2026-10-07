@@ -5,6 +5,7 @@ import { Play, Lock, Unlock, AlertCircle, ArrowLeft, Loader } from "lucide-react
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import API_BASE_URL from "../../config/api";
+import AdvisorModal from "../../components/AdvisorModal";
 
 const VideoCourseDetailPage = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const VideoCourseDetailPage = () => {
   const [course, setCourse] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [advisorOpen, setAdvisorOpen] = useState(false);
   const [error, setError] = useState("");
 
   const token = localStorage.getItem("token");
@@ -41,51 +42,8 @@ const VideoCourseDetailPage = () => {
     fetchCourseDetails();
   }, [id, token]);
 
-  const handleCheckout = async () => {
-    if (!token || !user) {
-      toast.error("Please login to purchase this course!");
-      navigate("/login", { state: { from: location.pathname } });
-      return;
-    }
-
-    setCheckoutLoading(true);
-    try {
-      const baseUrl = API_BASE_URL || "http://localhost:3001";
-      const payload = {
-        email: user.email,
-        lineItems: [
-          {
-            price_data: {
-              currency: "usd",
-              product_data: {
-                name: course.title,
-                description: course.description || "Video course access",
-              },
-              unit_amount: Math.round(course.price * 100), // Stripe expects cents
-            },
-            quantity: 1,
-          },
-        ],
-        productIds: [course._id],
-        success_url: `${window.location.origin}/video-courses/payment-success`,
-        cancel_url: window.location.href,
-      };
-
-      const res = await axios.post(`${baseUrl}/payments/stripe`, payload, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-
-      if (res.data && res.data.url) {
-        window.location.href = res.data.url;
-      } else {
-        throw new Error("Invalid response from Stripe session creator");
-      }
-    } catch (err) {
-      console.error("Checkout initiation error:", err);
-      toast.error(err.response?.data?.message || "Failed to initiate payment. Please try again.");
-    } finally {
-      setCheckoutLoading(false);
-    }
+  const handleOpenEnrollment = () => {
+    setAdvisorOpen(true);
   };
 
   const getDriveEmbedUrl = (fileId) => {
@@ -186,18 +144,10 @@ const VideoCourseDetailPage = () => {
                         "{selectedVideo.title}" is a premium video. Purchase the course to unlock the full training.
                       </p>
                       <button
-                        onClick={handleCheckout}
-                        disabled={checkoutLoading}
-                        className="py-3 px-6 rounded-xl font-bold bg-gradient-to-r from-teal-500 to-purple-600 hover:from-teal-400 hover:to-purple-500 transition-all text-white flex items-center gap-2 shadow-lg shadow-purple-950/30"
+                        onClick={handleOpenEnrollment}
+                        className="py-3 px-6 rounded-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all text-white flex items-center gap-2 shadow-lg shadow-blue-950/30 cursor-pointer"
                       >
-                        {checkoutLoading ? (
-                          <>
-                            <Loader className="w-5 h-5 animate-spin" />
-                            Redirecting to Stripe...
-                          </>
-                        ) : (
-                          `Unlock Course for $${course.price}`
-                        )}
+                        Enroll to Unlock Full Course
                       </button>
                     </div>
                   )
@@ -214,13 +164,12 @@ const VideoCourseDetailPage = () => {
                   <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
                     {course.title}
                   </h1>
-                  {!userHasAccess && course.price > 0 && (
+                  {!userHasAccess && (
                     <button
-                      onClick={handleCheckout}
-                      disabled={checkoutLoading}
-                      className="py-2.5 px-5 bg-teal-500 hover:bg-teal-400 transition-colors text-slate-950 font-bold rounded-xl text-sm"
+                      onClick={handleOpenEnrollment}
+                      className="py-2.5 px-5 bg-blue-600 hover:bg-blue-500 transition-colors text-white font-bold rounded-xl text-sm cursor-pointer shadow-sm"
                     >
-                      Buy Course • ${course.price}
+                      Enroll in Course
                     </button>
                   )}
                 </div>
@@ -300,6 +249,13 @@ const VideoCourseDetailPage = () => {
           </div>
         </div>
       </div>
+
+      <AdvisorModal
+        isOpen={advisorOpen}
+        onClose={() => setAdvisorOpen(false)}
+        prefillCourse={course?.title}
+        prefillCourseCode={course?._id ? `VIDEO-${course._id.slice(-6)}` : undefined}
+      />
     </>
   );
 };

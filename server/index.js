@@ -12,7 +12,6 @@ import { reviewRouter } from "./routes/review.routes.js";
 import { bookRouter } from "./routes/book.routes.js";
 import { questionRouter } from "./routes/question.routes.js";
 import { resultRouter } from "./routes/result.routes.js";
-import { paymentRouter } from "./routes/payment.routes.js";
 import { employeeRouter } from "./routes/employee.routes.js";
 import certificateRouter from "./routes/certificate.routes.js";
 import voucherRouter from "./routes/voucher.routes.js";
@@ -24,37 +23,46 @@ import consultantRouter from "./routes/consultant.routes.js";
 import internRouter from "./routes/intern.routes.js";
 import { videoCourseRouter } from "./routes/videoCourse.routes.js";
 
+import registrationRouter from "./routes/registration.routes.js";
+
 dotenv.config();
 
 // ✅ Check for required environment variables
 if (!process.env.SECRET_KEY) {
-  console.error("❌ CRITICAL ERROR: SECRET_KEY environment variable is not set!");
-  console.error("Please create a .env file with SECRET_KEY=your-secret-key");
-  process.exit(1);
+  console.warn("⚠️ WARNING: SECRET_KEY environment variable is not set. Defaulting to a development fallback key.");
 }
 
 const app = express();
 
 // ✅ Enhanced CORS Configuration
+const allowedOrigins = [
+  'https://studygrinder.com',
+  'https://www.studygrinder.com',
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://localhost:3001',
+  'http://127.0.0.1:3000',
+  'http://localhost:3006',
+  'http://localhost:8080'
+];
+
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL.replace(/\/$/, ""));
+}
+
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
+    // Allow requests with no origin (like mobile apps, curl, server-to-server)
     if (!origin) return callback(null, true);
 
-    const allowedOrigins = [
-      'https://Armx-Indecodextech.in',
-      'https://www.Armx-Indecodextech.in',
-      'http://localhost:3000',
-      'http://localhost:5173',
-      'http://localhost:3001',
-      'http://127.0.0.1:3000',
-      'http://localhost:3006'
-    ];
+    const isExplicitlyAllowed = allowedOrigins.includes(origin);
+    const isStudyGrinderDomain = /\.studygrinder\.com$/.test(origin) || origin === 'https://studygrinder.com';
+    const isVercelPreview = /\.vercel\.app$/.test(origin);
 
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (isExplicitlyAllowed || isStudyGrinderDomain || isVercelPreview) {
       callback(null, true);
     } else {
-      console.log('Blocked by CORS:', origin);
+      console.warn('⚠️ Origin blocked by CORS:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -67,7 +75,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 // For webhooks we need raw body; apply conditionally for the webhook route
-app.post('/payments/stripe/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
 // ✅ Disable ETag to avoid 304 stale responses for dynamic content
@@ -76,14 +83,25 @@ app.set('etag', false);
 // ✅ Static Files
 app.use("/uploads", express.static("uploads"));
 
+// ✅ Health Check Endpoint (Render & Uptime Monitors)
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    service: "StudyGrinder API",
+    uptime: Math.floor(process.uptime()),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // ✅ Routes
+app.use("/registration", registrationRouter);
+app.use("/api/registration", registrationRouter);
 app.use("/questions", questionRouter);
 app.use("/employees", employeeRouter);
 app.use("/results", resultRouter);
 app.use("/users", userRouter);
 app.use("/review", reviewRouter);
 app.use("/books", bookRouter);
-app.use("/payments", paymentRouter);
 app.use("/certificates", certificateRouter);
 app.use("/vouchers", voucherRouter);
 app.use("/security", securityRouter);
@@ -96,7 +114,7 @@ app.use("/video-courses", videoCourseRouter);
 // ✅ Home Endpoint
 app.get("/", (req, res) => {
   res.status(200).send({
-    message: "Welcome to Armx-Indecodex API",
+    message: "Welcome to StudyGrinder API",
   });
 });
 
@@ -116,7 +134,7 @@ const startServer = async () => {
     await connectDB();
     httpServer.listen(PORT, () => {
       console.log(`🚀 Server is running on port ${PORT}`);
-      console.log(`Using FRONTEND_URL for payment redirects: ${process.env.FRONTEND_URL || 'Not set'}`);
+      console.log(`🌐 Frontend URL configured: ${process.env.FRONTEND_URL || 'Not set'}`);
     });
   } catch (error) {
     console.error("❌ Failed to start server:", error);

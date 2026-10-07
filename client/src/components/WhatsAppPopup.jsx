@@ -16,7 +16,7 @@ const WhatsAppPopup = ({
   // };
 
   const handleInternationalClick = () => {
-    window.open("https://wa.me/+18255859201", "_blank");
+    window.open("https://wa.me/+447353049644", "_blank");
     setShowPopup(false);
   };
 

@@ -30,8 +30,8 @@ const Home = lazyWithRetry(() => import("../pages/Home"));
 // const UserPage = lazy(() => import("../pages/userPage/UserPage"));
 const Login = lazyWithRetry(() => import("../pages/Login"));
 const AboutUS = lazyWithRetry(() => import("../pages/AboutUs/AboutUS"));
-// Removed ConsultantLogin and ConsultantSignup imports as they are now part of AdminPanel
 const ContactUs = lazyWithRetry(() => import("../pages/ContactUs"));
+const RegisterPage = lazyWithRetry(() => import("../pages/RegisterPage"));
 const Signup = lazyWithRetry(() => import("../pages/Signup"));
 const FAQ = lazyWithRetry(() => import("../pages/FAQ"));
 const Services = lazyWithRetry(() => import("../pages/Services/Services"));
@@ -58,8 +58,6 @@ const Resources = lazyWithRetry(() => import("../pages/Resources"));
 const TrainingVendor = lazyWithRetry(() => import("../pages/TrainingVendor"));
 const ISACA = lazyWithRetry(() => import("../pages/ISACA"));
 const InternalExams = lazyWithRetry(() => import("../pages/InternalExams"));
-// const VoucherSuccess = lazyWithRetry(() => import("../pages/VoucherSuccess"));
-// const VoucherCancel = lazyWithRetry(() => import("../pages/VoucherCancel"));
 // const Comptia = lazyWithRetry(() => import("../pages/Comptia"));
 // const Aws = lazyWithRetry(() => import("../pages/Aws"));
 // const BookPage = lazyWithRetry(() => import("../pages/ebook/BookPage"));
@@ -77,7 +75,6 @@ const CertificateTemplate = lazyWithRetry(
 
 const VideoCoursesPage = lazyWithRetry(() => import("../pages/VideoCourses/VideoCoursesPage"));
 const VideoCourseDetailPage = lazyWithRetry(() => import("../pages/VideoCourses/VideoCourseDetailPage"));
-const VideoCourseSuccess = lazyWithRetry(() => import("../pages/VideoCourses/VideoCourseSuccess"));
 
 // Portfolio pages
 const Portfolio = lazyWithRetry(() => import("../pages/Portfolio/Portfolio"));
@@ -429,6 +426,9 @@ const AllRoute = () => {
         /> */}
         <Route path="/about-us" element={<AboutUS />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/registration" element={<RegisterPage />} />
         <Route path="/requirement-wizard" element={<ClientRequirementWizard />} />
         {/* Removed Consultant Login/Signup routes */}
         <Route path="/consultant" element={<ConsultantChat />} />{" "}
@@ -450,7 +450,6 @@ const AllRoute = () => {
         <Route path="/courses" element={<Courses />} />
         <Route path="/video-courses" element={<VideoCoursesPage />} />
         <Route path="/video-courses/:id" element={<VideoCourseDetailPage />} />
-        <Route path="/video-courses/payment-success" element={<VideoCourseSuccess />} />
         <Route path="/training" element={<Training />} />
         <Route path="/corporate-training" element={<CorporateTraining />} />
         <Route path="/resources" element={<Resources />} />
@@ -730,8 +729,6 @@ const AllRoute = () => {
         {/* Employee and Training Routes */}
         <Route path="/internship" element={<Internship />} />
         <Route path="/internal-exams" element={<InternalExams />} />
-        {/* <Route path="/voucher-success" element={<VoucherSuccess />} /> */}
-        {/* <Route path="/voucher-cancel" element={<VoucherCancel />} /> */}
         {/* Admin Panel */}
         <Route
           path="/admin-panel"

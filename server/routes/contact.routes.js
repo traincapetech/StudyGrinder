@@ -91,7 +91,7 @@ contactRouter.post("/career-application", async (req, res) => {
         <div class="container">
           <div class="header">
             <h1>🎯 New Career Application</h1>
-            <p>A candidate has applied for a position at Armx-Indecodex</p>
+            <p>A candidate has applied for a position at StudyGrinder</p>
           </div>
           <div class="content">
             <div class="field" style="text-align: center; margin-bottom: 25px;">
@@ -144,7 +144,7 @@ contactRouter.post("/career-application", async (req, res) => {
             </div>
           </div>
           <div class="footer">
-            <p>Received via Armx-Indecodex Careers Portal</p>
+            <p>Received via StudyGrinder Careers Portal</p>
             <p>Reply directly to this email to contact the candidate</p>
           </div>
         </div>
@@ -174,9 +174,11 @@ contactRouter.post("/career-application", async (req, res) => {
       }
     });
 
+    const hrRecipient = process.env.HR_RECEIVER_EMAIL || "register@studygrinder.com";
+
     await transporter.sendMail({
       from: `"${smtpUser}" <${smtpUser}>`,
-      to: "hr@Armx-Indecodextech.in",
+      to: hrRecipient,
       replyTo: safeEmail,
       subject: `📋 New Application: ${safePosition} — ${safeName}`,
       html: htmlContent,
@@ -260,7 +262,7 @@ contactRouter.post("/lead", async (req, res) => {
       });
     }
 
-    const toEmail = process.env.CONTACT_RECEIVER_EMAIL || "sales@Armx-Indecodextech.in";
+    const toEmail = process.env.CONTACT_RECEIVER_EMAIL || "register@studygrinder.com";
 
     const transporter = nodemailer.createTransport({
       host: "smtp.hostinger.com",

@@ -35,7 +35,7 @@ const Navbar = () => {
     { name: "Training", path: "/training" },
     { name: "Corporate Training", path: "/corporate-training" },
     { name: "Resources", path: "/resources" },
-    { name: "Software Solutions", path: "/services" },
+    { name: "Register", path: "/register" },
     { name: "About", path: "/about-us" },
     { name: "Contact", path: "/contact-us" },
   ];

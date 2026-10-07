@@ -15,25 +15,15 @@ import {
   ShieldCheck,
   Users,
   ArrowRight,
-  BookOpen
+  BookOpen,
+  GraduationCap
 } from "lucide-react";
-import toast from "react-hot-toast";
-import { submitLead } from "../../utils/submitLead";
 
 export default function CertificationDetail() {
   const navigate = useNavigate();
   const { categorySlug, certSlug } = useParams();
   const { allCourses } = useMemo(() => getCertificationsCatalog(), []);
   const [advisorOpen, setAdvisorOpen] = useState(false);
-
-  // Quick enquiry form state
-  const [quickForm, setQuickForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    trainingMode: "Live Virtual",
-  });
-  const [submitting, setSubmitting] = useState(false);
 
   const cert = allCourses.find((c) => c.categorySlug === categorySlug && c.slug === certSlug);
   const title = cert?.title || "Certification";
@@ -45,43 +35,6 @@ export default function CertificationDetail() {
       .filter((c) => c.categorySlug === cert.categorySlug && c.id !== cert.id)
       .slice(0, 3);
   }, [allCourses, cert]);
-
-  const handleQuickSubmit = async (e) => {
-    e.preventDefault();
-    if (!quickForm.name.trim() || quickForm.name.length < 2) {
-      return toast.error("Please enter your name.");
-    }
-    if (!quickForm.email.trim() || !quickForm.email.includes("@")) {
-      return toast.error("Please enter a valid email.");
-    }
-    if (!quickForm.phone.trim() || quickForm.phone.length < 6) {
-      return toast.error("Please enter a phone number.");
-    }
-
-    setSubmitting(true);
-    try {
-      const pageUrl = typeof window !== "undefined" ? window.location.href : "";
-      const lead = {
-        name: quickForm.name.trim(),
-        email: quickForm.email.trim(),
-        phoneNumber: quickForm.phone.trim(),
-        location: "Certification Detail Page",
-        subject: `Certification Guidance Request: ${cert?.title}`,
-        message: `Inquiry for Certification: ${cert?.title}
-Category: ${cert?.categoryTitle}
-Preferred Mode: ${quickForm.trainingMode}
-Page: ${pageUrl}`,
-      };
-
-      await submitLead(lead);
-      toast.success("Thank you! A StudyGrinder training advisor will contact you shortly.");
-      setQuickForm({ name: "", email: "", phone: "", trainingMode: "Live Virtual" });
-    } catch (err) {
-      toast.error(err?.message || "Failed to submit request.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   const structuredData = cert
     ? {
@@ -264,71 +217,26 @@ Page: ${pageUrl}`,
                     </div>
                   </div>
 
-                  {/* Fast Contextual Lead Capture Box */}
-                  <div className="bg-slate-50 p-5 rounded-xl border border-slate-200/80">
-                    <span className="text-xs font-bold uppercase tracking-wider text-orange-600 block mb-1">
-                      Enquire for this Certification
+                  {/* Unified Enrollment & Advisory Card */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50/60 p-6 rounded-2xl border border-blue-200/80 shadow-sm text-center">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100/80 px-2.5 py-0.5 rounded-full inline-block mb-2 font-mono">
+                      {cert?.code || "Official Curriculum"}
                     </span>
-                    <h4 className="text-sm font-bold text-slate-900">Get Training Guidance & Batches</h4>
-                    <p className="text-xs text-slate-500 mt-1 mb-4">
-                      Speak with an advisor to discuss schedules, fees, and curriculum details.
+                    <h4 className="text-base font-extrabold text-slate-900">
+                      Enroll in {cert?.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 mb-5 leading-relaxed">
+                      Speak with our admissions advisor to review curriculum schedules, exam format, fee structure, and voucher availability.
                     </p>
 
-                    <form onSubmit={handleQuickSubmit} className="space-y-3">
-                      <div>
-                        <input
-                          type="text"
-                          required
-                          value={quickForm.name}
-                          onChange={(e) => setQuickForm({ ...quickForm, name: e.target.value })}
-                          placeholder="Your Full Name"
-                          className="w-full px-3 py-2 text-xs rounded-lg bg-white border border-slate-300 outline-none focus:border-blue-500"
-                        />
-                      </div>
-
-                      <div>
-                        <input
-                          type="email"
-                          required
-                          value={quickForm.email}
-                          onChange={(e) => setQuickForm({ ...quickForm, email: e.target.value })}
-                          placeholder="Your Email Address"
-                          className="w-full px-3 py-2 text-xs rounded-lg bg-white border border-slate-300 outline-none focus:border-blue-500"
-                        />
-                      </div>
-
-                      <div>
-                        <input
-                          type="tel"
-                          required
-                          value={quickForm.phone}
-                          onChange={(e) => setQuickForm({ ...quickForm, phone: e.target.value })}
-                          placeholder="Phone / WhatsApp Number"
-                          className="w-full px-3 py-2 text-xs rounded-lg bg-white border border-slate-300 outline-none focus:border-blue-500"
-                        />
-                      </div>
-
-                      <div>
-                        <select
-                          value={quickForm.trainingMode}
-                          onChange={(e) => setQuickForm({ ...quickForm, trainingMode: e.target.value })}
-                          className="w-full px-3 py-2 text-xs rounded-lg bg-white border border-slate-300 outline-none focus:border-blue-500 text-slate-700"
-                        >
-                          <option value="Live Virtual Batch">Live Virtual Batch</option>
-                          <option value="Weekend Intensive">Weekend Intensive</option>
-                          <option value="Self-Paced Learning">Self-Paced Track</option>
-                          <option value="Corporate Team Training">Corporate Team Cohort</option>
-                        </select>
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={submitting}
-                        className="w-full py-2.5 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs shadow-md transition disabled:opacity-50 cursor-pointer"
-                      >
-                        {submitting ? "Submitting..." : "Get Training Guidance"}
-                      </button>
-                    </form>
+                    <button
+                      type="button"
+                      onClick={() => setAdvisorOpen(true)}
+                      className="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs shadow-md shadow-orange-500/20 transition cursor-pointer flex items-center justify-center gap-2"
+                    >
+                      <GraduationCap className="w-4 h-4" />
+                      <span>Register / Enquire for this Course</span>
+                    </button>
                   </div>
 
                   <div className="space-y-2">
@@ -358,6 +266,8 @@ Page: ${pageUrl}`,
         isOpen={advisorOpen}
         onClose={() => setAdvisorOpen(false)}
         prefillCourse={cert?.title || ""}
+        prefillCourseCode={cert?.code || ""}
+        source={`Certification Detail: ${cert?.title}`}
       />
     </div>
   );

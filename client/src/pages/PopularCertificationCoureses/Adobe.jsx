@@ -7,30 +7,9 @@ import Card3 from "../../assets/adobe3.webp";
 import Card4 from "../../assets/adobe4.webp";
 import Card5 from "../../assets/adobe5.webp";
 import Card6 from "../../assets/adobe6.webp";
-import AdobeCourses from "../../components/AdobeCourses";
 import { useNavigate } from "react-router-dom";
-import AddToCartButton from "../../components/AddToCartButton";
-import { useCartContext } from "../../components/CartContext";
 
 const Adobe = () => {
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const { addToCart } = useCartContext();
-
-  const handleAddToCart = () => {
-    const product = {
-      id: "adobe-photoshop-certified-professional",
-      title: "Adobe Photoshop Certified Professional",
-      price: 2499,
-      image: "https://www.adobe.com/content/dam/shared/images/product-icons/svg/photoshop.svg",
-      quantity: 1,
-    };
-    addToCart(product);
-    setShowConfirmation(true);
-
-    setTimeout(() => {
-      setShowConfirmation(false);
-    }, 2000);
-  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -40,10 +19,9 @@ const Adobe = () => {
     // AdobeInDesign was in the pending URLs list
   ];
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
-      <AddToCartButton />
       <div
         className="bg-gray-100 w-full relative contrast-75 h-[65vh] content-center text-justify"
         style={{
@@ -72,10 +50,10 @@ const Adobe = () => {
               exam is integrated with an Adobe application and designed by
               experts, allowing for an authentic assessment of job-ready skills.
               <br /> <br />
-              Armx-Indecodex provides a full pathway solution that students can use
+              StudyGrinder provides a full pathway solution that students can use
               to prepare for the Adobe Certified Professional certification.
               From tailored learning materials and practice tests to Adobe
-              endorsed certification exams, Armx-Indecodex provides assistance every step of the way.
+              endorsed certification exams, StudyGrinder provides assistance every step of the way.
             </h5>
           </div>
           <div className="hidden lg:block xl:block  mt-5 p-5">

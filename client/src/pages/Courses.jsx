@@ -81,23 +81,16 @@ const Courses = () => {
       },
     ],
   };
-  // Function to handle Add to Cart and navigate to the cart page
-  const handleAddToCart = (course) => {
-    // Store the selected course in localStorage or global state
-    localStorage.setItem("selectedCourse", JSON.stringify(course));
-    navigate("/cart");
-  };
 
   return (
     <>
-
       <Helmet>
-        <title>Explore our IT Courses & Certification</title>
+        <title>Explore our IT Courses & Certification | StudyGrinder</title>
         <meta
           name="description"
-          content="Explore our IT Certifications and get in touch with us for Certifications like CompTIA, AWS, PMI, Microsoft, Cisco and many more us. | Grow with us"
+          content="Explore our IT Certifications and get in touch with us for Certifications like CompTIA, AWS, PMI, Microsoft, Cisco and many more. | StudyGrinder"
         />
-        <link rel="canonical" href="https://www.Armx-Indecodextech.in/Courses-details" />
+        <link rel="canonical" href="https://studygrinder.com/Courses-details" />
       </Helmet>
 
 

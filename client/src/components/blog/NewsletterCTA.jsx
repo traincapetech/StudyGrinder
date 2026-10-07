@@ -24,7 +24,7 @@ export default function NewsletterCTA() {
         subject: "New Blog Newsletter Subscription",
         message: `Subscriber Email: ${safeEmail}\nRequested blog updates subscription.`,
       });
-      toast.success("Thank you for subscribing to Armx-Indecodex Tech updates!");
+      toast.success("Thank you for subscribing to StudyGrinder updates!");
       setEmail("");
     } catch (err) {
       toast.error(err?.message || "Failed to subscribe. Please try again.");

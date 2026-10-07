@@ -15,76 +15,9 @@ import {
   Headphones
 } from "lucide-react";
 import SEOHead from "../components/SEOHead";
-import toast from "react-hot-toast";
-import { submitLead } from "../utils/submitLead";
+import RegistrationForm from "../components/RegistrationForm";
 
 export default function CorporateTraining() {
-  const [form, setForm] = useState({
-    name: "",
-    workEmail: "",
-    company: "",
-    phone: "",
-    teamSize: "5-15",
-    targetCertification: "",
-    preferredFormat: "Live Virtual Cohort",
-    message: "",
-  });
-  const [submitting, setSubmitting] = useState(false);
-
-  const update = (field) => (e) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name.trim() || form.name.length < 2) {
-      return toast.error("Please enter your name.");
-    }
-    if (!form.workEmail.trim() || !form.workEmail.includes("@")) {
-      return toast.error("Please enter a valid work email.");
-    }
-    if (!form.company.trim()) {
-      return toast.error("Please enter your company name.");
-    }
-    if (!form.phone.trim()) {
-      return toast.error("Please enter a contact phone number.");
-    }
-
-    setSubmitting(true);
-    try {
-      const pageUrl = typeof window !== "undefined" ? window.location.href : "";
-      const lead = {
-        name: form.name.trim(),
-        email: form.workEmail.trim(),
-        phoneNumber: form.phone.trim(),
-        location: form.company.trim(),
-        subject: `Corporate Training Quote — ${form.company} (${form.targetCertification || "General"})`,
-        message: `Corporate Training Request:
-Company: ${form.company}
-Team Size: ${form.teamSize}
-Target Cert / Skills: ${form.targetCertification}
-Preferred Format: ${form.preferredFormat}
-Message: ${form.message}
-Page: ${pageUrl}`,
-      };
-
-      await submitLead(lead);
-      toast.success("Corporate training request received! Our enterprise advisor will contact you within 4 business hours.");
-      setForm({
-        name: "",
-        workEmail: "",
-        company: "",
-        phone: "",
-        teamSize: "5-15",
-        targetCertification: "",
-        preferredFormat: "Live Virtual Cohort",
-        message: "",
-      });
-    } catch (err) {
-      toast.error(err?.message || "Failed to submit request. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   return (
     <div className="bg-slate-50 font-sans selection:bg-blue-600 selection:text-white">
       <SEOHead
@@ -272,118 +205,12 @@ Page: ${pageUrl}`,
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-              <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Full Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={form.name}
-                  onChange={update("name")}
-                  placeholder="e.g. Sarah Jenkins"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Work Email *</label>
-                <input
-                  type="email"
-                  required
-                  value={form.workEmail}
-                  onChange={update("workEmail")}
-                  placeholder="s.jenkins@company.com"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Company / Organization *</label>
-                <input
-                  type="text"
-                  required
-                  value={form.company}
-                  onChange={update("company")}
-                  placeholder="e.g. Acme Technologies"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Phone / WhatsApp Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={form.phone}
-                  onChange={update("phone")}
-                  placeholder="+1 (555) 000-0000"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Team Size</label>
-                <select
-                  value={form.teamSize}
-                  onChange={update("teamSize")}
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none focus:border-blue-400"
-                >
-                  <option value="1-5">1 - 5 Employees</option>
-                  <option value="5-15">5 - 15 Employees</option>
-                  <option value="15-50">15 - 50 Employees</option>
-                  <option value="50+">50+ Employees (Enterprise)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Preferred Training Format</label>
-                <select
-                  value={form.preferredFormat}
-                  onChange={update("preferredFormat")}
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none focus:border-blue-400"
-                >
-                  <option value="Live Virtual Cohort">Live Virtual Cohort (Instructor-Led)</option>
-                  <option value="Weekend Intensive">Weekend Intensive Batch</option>
-                  <option value="Self-Paced with Mentor Sessions">Self-Paced with Mentor Q&A</option>
-                  <option value="Custom Blended Delivery">Custom Blended Delivery</option>
-                </select>
-              </div>
-
-              <div className="sm:col-span-2">
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Target Certification / Technology Track</label>
-                <input
-                  type="text"
-                  value={form.targetCertification}
-                  onChange={update("targetCertification")}
-                  placeholder="e.g. AWS Solutions Architect, CompTIA Security+, ISO 27001, Azure AZ-104"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400"
-                />
-              </div>
-
-              <div className="sm:col-span-2">
-                <label className="text-xs font-semibold text-slate-300 block mb-1">Specific Requirements / Message</label>
-                <textarea
-                  rows={3}
-                  value={form.message}
-                  onChange={update("message")}
-                  placeholder="Tell us about your team's background, target timeline, or specific project requirements..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400"
-                />
-              </div>
-
-              <div className="sm:col-span-2 pt-2">
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm shadow-lg shadow-orange-500/25 transition disabled:opacity-50 cursor-pointer"
-                >
-                  {submitting ? "Submitting Corporate Request..." : "Submit Corporate Training Request"}
-                </button>
-                <p className="text-center text-[11px] text-slate-400 mt-2">
-                  🔒 We respect your privacy. No spam. A training director will reach out with customized pricing.
-                </p>
-              </div>
-            </form>
+            <div className="bg-white rounded-2xl p-6 sm:p-8 text-slate-900 shadow-xl border border-slate-100">
+              <RegistrationForm
+                prefillCourse="Corporate Team Upskilling"
+                source="Corporate Training Page"
+              />
+            </div>
           </div>
         </div>
       </section>

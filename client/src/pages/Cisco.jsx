@@ -21,7 +21,6 @@ import CCIESecurity from "../assets/Cisco/CCIESecurity.png";
 import CCIEDatacenter from "../assets/Cisco/CCIEdatacenter.png";
 import CCIEServiceprovider from "../assets/Cisco/CCIEserviceprovider.png";
 import CCIECollabration from "../assets/Cisco/CCIECollabration.png";
-import AddToCartButton from "../components/AddToCartButton.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Cisco = () => {
@@ -55,8 +54,6 @@ const Cisco = () => {
 
   return (
     <>
-      <AddToCartButton />
-
       <div className="course-detail text-center bg-blue-100 py-10">
         <div className="info flex flex-col md:flex-row gap-6 items-center px-5">
           <Lottie

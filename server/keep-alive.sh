@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Keep-alive script for Armx-Indecodex Server
+# Keep-alive script for StudyGrinder Server
 # This script monitors the server and restarts it if it goes down
 
 echo "🔄 Starting server keep-alive monitor..."

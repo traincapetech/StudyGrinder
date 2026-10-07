@@ -3,7 +3,6 @@ import comptia from "../assets/comptia.json";
 import Lottie from "lottie-react";
 import MicrosoftCourse from "../components/MicrosoftCourse.jsx";
 import mircro from "../assets/Microsoft-Emblem.jpg";
-import AddToCartButton from "../components/AddToCartButton.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Microsoft = () => {
@@ -24,8 +23,6 @@ const Microsoft = () => {
 
   return (
     <>
-      <AddToCartButton />
-
       <div className="course-detail text-center bg-blue-100 py-10">
         <div className="info flex flex-col md:flex-row gap-6 items-center px-5">
           <Lottie

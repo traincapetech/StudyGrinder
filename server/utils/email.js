@@ -80,7 +80,7 @@ const sendVoucherEmail = async (to, voucherData) => {
         </div>
         
         <div style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
-          <p>© 2024 Armx-Indecodex. All rights reserved.</p>
+          <p>© StudyGrinder. All rights reserved.</p>
         </div>
       </div>
     `;

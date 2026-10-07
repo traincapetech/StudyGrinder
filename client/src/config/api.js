@@ -1,9 +1,14 @@
 // API Configuration for different environments
-const API_BASE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://Armx-Indecodex-backend-uwoa.onrender.com'  // Production URL
-  : 'http://localhost:8080';  // Development URL
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  (process.env.NODE_ENV === 'production'
+    ? 'https://Armx-Indecodex-backend-uwoa.onrender.com' // Production URL (or new backend URL when deployed)
+    : 'http://localhost:3001'); // Development URL (Server runs on 3001)
 
 export const API_ENDPOINTS = {
+  // Registration endpoint (Unified website form)
+  REGISTRATION: `${API_BASE_URL}/registration`,
+
   // User endpoints
   LOGIN: `${API_BASE_URL}/users/login`,
   REGISTER: `${API_BASE_URL}/users/register`,

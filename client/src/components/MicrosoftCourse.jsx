@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import VoucherButton from "./VoucherButton";
 
 const MicrosoftCourse = ({ title, url, image, course, subCourse }) => {
   return (
@@ -16,17 +15,6 @@ const MicrosoftCourse = ({ title, url, image, course, subCourse }) => {
       <h3 className="text-lg md:text-xl font-bold text-blue-800 mb-4 text-center">
         {title}
       </h3>
-
-      {/* Voucher Button */}
-      {course && subCourse && (
-        <div className="w-full mb-3">
-          <VoucherButton
-            course={course}
-            subCourse={subCourse}
-            className="w-full justify-center"
-          />
-        </div>
-      )}
 
       {/* Course Details Button */}
       <Link to={url} className="mt-auto w-full">
