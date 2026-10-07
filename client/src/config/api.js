@@ -29,6 +29,10 @@ export const API_ENDPOINTS = {
 
   // Security
   SECURITY: `${API_BASE_URL}/security`,
+
+  // Visitor tracking
+  VISITORS_TRACK: `${API_BASE_URL}/api/visitors/track`,
+  VISITORS_COUNT: `${API_BASE_URL}/api/visitors/count`,
 };
 
 export default API_BASE_URL;
