@@ -30,7 +30,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/home" },
     { name: "Certifications", path: "/certifications", badge: "400+" },
     { name: "Training", path: "/training" },
     { name: "Corporate Training", path: "/corporate-training" },
@@ -42,6 +42,8 @@ const Navbar = () => {
 
   const isLinkActive = (path) => {
     const current = location.pathname;
+    if (path === "/contact-us") return current === "/contact-us" || current === "/" || current === "/contact";
+    if (path === "/home") return current === "/home";
     if (path === "/") return current === "/";
     return current.startsWith(path);
   };
