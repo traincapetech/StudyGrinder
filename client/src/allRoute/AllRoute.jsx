@@ -403,7 +403,8 @@ const AllRoute = () => {
           element={!token ? <ForgotPassword /> : <Navigate to="/" replace />}
         />
         <Route path="/review-page" element={<ReviewPage />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<ContactUs />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/partner-page" element={<PartnerPage />} />
         <Route path="/certifications" element={<CertificationsIndex />} />
         <Route
@@ -725,7 +726,6 @@ const AllRoute = () => {
         {/* Main ISACA Landing Page */}
         <Route path="/isaca" element={<ISACA />} />
         <Route path="/ISACA" element={<ISACA />} />
-        <Route path="/home" element={<LandingPage />} />
         {/* Employee and Training Routes */}
         <Route path="/internship" element={<Internship />} />
         <Route path="/internal-exams" element={<InternalExams />} />
