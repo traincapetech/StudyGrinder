@@ -1,6 +1,9 @@
 {
+  "buildCommand": "node scripts/prepare-build.js && node scripts/generate-sitemap.js && CI=false npx craco build",
+  "outputDirectory": "build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
-
