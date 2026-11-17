@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node scripts/prepare-build.js && node scripts/generate-sitemap.js && CI=false npx craco build",
+  "buildCommand": "node scripts/prepare-build.js && node scripts/generate-sitemap.js && CI=false npx craco build && test -f build/index.html && test -f build/asset-manifest.json",
   "outputDirectory": "build",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": null,
